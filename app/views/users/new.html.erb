@@ -1,2 +1,16 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="container valign">
+  <div class="row center-align">
+    <div class="col s6 offset-s3">
+      <%= form_for(@user) do |f| %>
+        <%= f.text_field :first_name, placeholder: :nombre %>
+        <%= f.text_field :last_name, placeholder: :apellido %>
+        <%= f.text_field :dob, placeholder: :fecha_de_nacimiento, class: :datepicker %>
+        <%= f.email_field :email, placeholder: :email %>
+        <%= f.password_field :identification_number, placeholder: :cedula %>
+        <%= f.telephone_field :phone_number, placeholder: :numero_telefonico %>
+        <%= f.submit "Crear usuario", class: :btn %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

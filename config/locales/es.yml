@@ -1,0 +1,6 @@
+es:
+  helpers:
+    placeholder:
+      user:
+        first_name: "Nombre"
+  create_user: 'Crear usuario'
