@@ -1,5 +1,20 @@
-<h1>Static#welcome</h1>
-<p>Find me in app/views/static/welcome.html.erb</p>
+<div class="container valign-wrapper">
+  <div class="row center-align">
+    <div class="col s12 m10 offset-m1 l8 offset-l2">
+      <h1>Younger Job</h1>
 
 
-<%= link_to t('Crear usuario'), new_user_path %>
+      <%# this should be links to student and company portals respectively. %>
+      <%# once on the portal page, student and/or company will be prompted to login or signup %>
+      <div>
+        buscando empleo?
+        <%= link_to t('Crear usuario'), new_user_path, class: "waves-effect waves-light btn" %>
+      </div> 
+
+      <div>
+        buscando empleadores?
+        <%= link_to t('Crear compañia'), '/#', class: "waves-effect waves-light btn blue" %>
+      </div> 
+    </div>
+  </div>
+</div>

@@ -1,15 +1,29 @@
-<div class="container valign">
-  <div class="row center-align">
-    <div class="col s6 offset-s3">
-      <%= form_for(@user) do |f| %>
-        <%= f.text_field :first_name, placeholder: :nombre %>
-        <%= f.text_field :last_name, placeholder: :apellido %>
-        <%= f.text_field :dob, placeholder: :fecha_de_nacimiento, class: :datepicker %>
-        <%= f.email_field :email, placeholder: :email %>
-        <%= f.password_field :identification_number, placeholder: :cedula %>
-        <%= f.telephone_field :phone_number, placeholder: :numero_telefonico %>
-        <%= f.submit "Crear usuario", class: :btn %>
+<div class="container valign-wrapper center-align">
+  <div class="row">
+    <div class="col s12 m10 offset-m1 l8 offset-l2">
+      <%= form_with(model: @user, local: true) do |form| %>
+        <% if @user.errors.any? %>
+          <div>
+            <b>
+              <%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:
+            </b>
+            <ul>
+              <% @user.errors.messages.each do |key, message| %>
+                <li class="red-text"><%= message.first %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="input-field">
+          <%= form.email_field :email, placeholder: :email %>
+        </div>
+        <div class="field">
+          <%= form.label :fecha_de_nacimiento %>
+          <%= form.date_field :dob %>
+        </div>
+        <%= form.submit "Crear usuario", class: "waves-effect waves-light btn green white-text" %>
       <% end %>
+      <br /><%= link_to t('Atras'), root_path, class: "waves-effect waves-light btn orange white-text" %>
     </div>
   </div>
 </div>
