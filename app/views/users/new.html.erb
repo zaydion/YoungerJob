@@ -5,11 +5,13 @@
         <% if @user.errors.any? %>
           <div>
             <b>
-              <%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:
+              <%= pluralize(@user.errors.count, "error", "errores") %> prohibio crear el usuario:
             </b>
-            <ul>
-              <% @user.errors.messages.each do |key, message| %>
-                <li class="red-text"><%= message.first %></li>
+            <ul class="browser-default left-align">
+              <% @user.errors.messages.each do |key, messages| %>
+                <% messages.each do |message| %>
+                  <li class="red-text"><%= message %></li>
+                <% end %>
               <% end %>
             </ul>
           </div>

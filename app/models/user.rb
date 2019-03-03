@@ -1,8 +1,9 @@
 class User < ApplicationRecord
   # presence
-  validates :email, :dob, presence: true
+  validates :email, presence: { message: "Email es requerido" }
+  validates :dob, presence: { message: "Se requiere fecha de nacimiento" }
   # format
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "El email introducido debe ser un email válido" } 
   # validates :phone_number, format: { with: /\d{3}-\d{3}-\d{4}/, message: "bad format" }
   # inclusion
   validates :dob, inclusion: { in: (25.years.ago..16.years.ago), message: "Usuario tiene que tener entre 16 y 25 años de edad" }
