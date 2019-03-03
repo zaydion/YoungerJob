@@ -23,6 +23,17 @@
           <%= form.label :fecha_de_nacimiento %>
           <%= form.date_field :dob %>
         </div>
+        <div class="row left-align">
+          <div class="field">
+            <strong>Intereses:</strong><br />
+            <% @tags.each do |tag| %>
+              <label>
+                <%= form.check_box :tag_ids, { id: "#{tag.name}", class: "filled-in", multiple: true, value: tag.id }, tag.id.to_s, false %>
+                <span><%= tag.name %></span>
+              </label>
+            <% end %>
+          </div>
+        </div>
         <%= form.submit "Crear usuario", class: "waves-effect waves-light btn green white-text" %>
       <% end %>
       <br /><%= link_to t('Atras'), root_path, class: "waves-effect waves-light btn orange white-text" %>

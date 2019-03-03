@@ -6,8 +6,8 @@
         <%= f.text_field :last_name, placeholder: :apellido %>
         <%= f.date_field :dob, min: 16.years.ago, max: 25.years.ago %>
         <%= f.email_field :email, placeholder: :email %>
-        <%= f.password_field :identification_number, placeholder: :cedula %>
         <%= f.telephone_field :phone_number, placeholder: :numero_telefonico %>
+        <%= f.password_field :identification_number, placeholder: :cedula %>
         <%= f.submit "Update usuario", class: :btn %>
       <% end %>
     </div>

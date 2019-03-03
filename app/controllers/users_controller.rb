@@ -1,25 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :show, :update, :destroy]
-
+  before_action :set_tags, only: [:new, :create, :edit, :update]
   def new
     @user = User.new
   end
 
   def create
-    # print("#" * 100)
-    # puts(user_params)
-    # puts(user_params[:dob].to_date)
-    # print("#" * 100)
-    # puts("year: #{user_params[:dob].to_date.year}")
-    # puts("month: #{user_params[:dob].to_date.month}")
-    # puts("day: #{user_params[:dob].to_date.day}")
-    # @user.create(user_params)
-    # @user = User.new(user_params)
-    # puts("\n")
-    # puts("user valid: #{@user.valid?}")
-    # puts("user.errors: #{@user.errors[:email]}")
-    # puts("user.errors: #{@user.errors[:dob]}")
-
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -64,7 +50,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def set_tags
+    @tags = Tag.all
+  end
+
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :dob, :email, :identification_number, :phone_number)
+    params.require(:user).permit(
+      :first_name, 
+      :last_name, 
+      :dob, 
+      :email, 
+      :phone_number,
+      tag_ids: []
+    )
   end
 end
