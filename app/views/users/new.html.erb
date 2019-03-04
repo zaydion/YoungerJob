@@ -5,7 +5,7 @@
         <% if @user.errors.any? %>
           <div>
             <b>
-              <%= pluralize(@user.errors.count, "error", "errores") %> prohibio crear el usuario:
+              <%= pluralize(@user.errors.count, "error", "errores") %> <%= (@user.errors.count && @user.errors.count > 1 ? "prohibieron" : "prohibio") %> crear el usuario:
             </b>
             <ul class="browser-default left-align">
               <% @user.errors.messages.each do |key, messages| %>
