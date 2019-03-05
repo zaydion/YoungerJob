@@ -4,7 +4,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @company = Company.find(params[:company_id])
+    @posts = @company.posts
   end
 
   # GET /posts/1
@@ -14,22 +15,27 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @company = Company.find(params[:company_id])
+    @post = @company.posts.new
+    @tags = Tag.all
   end
 
   # GET /posts/1/edit
   def edit
+    @tags = Tag.all
   end
 
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
+    @company = Company.find(params[:company_id])
+    @post = @company.posts.new(post_params)
+    @tags = Tag.all
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
+        format.html { redirect_to [@company, @post], notice: 'Post was successfully created.' }
+        format.json { render :show, status: :created, location: [@company, @post] }
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -64,7 +70,8 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params[:id])
+      @company = Company.find(params[:company_id])
+      @post = @company.posts.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

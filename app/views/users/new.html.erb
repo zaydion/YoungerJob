@@ -1,43 +1,38 @@
-<div class="container valign-wrapper center-align">
-  <div class="row">
-    <div class="col s12 m10 offset-m1 l8 offset-l2">
-      <%= form_with(model: @user, local: true) do |form| %>
-        <% if @user.errors.any? %>
-          <div>
-            <b>
-              <%= pluralize(@user.errors.count, "error", "errores") %> <%= (@user.errors.count && @user.errors.count > 1 ? "prohibieron" : "prohibio") %> crear el usuario:
-            </b>
-            <ul class="browser-default left-align">
-              <% @user.errors.messages.each do |key, messages| %>
-                <% messages.each do |message| %>
-                  <li class="red-text"><%= message %></li>
-                <% end %>
-              <% end %>
-            </ul>
-          </div>
+
+<%= form_with(model: @user, local: true) do |form| %>
+  <% if @user.errors.any? %>
+    <div>
+      <b>
+        <%= pluralize(@user.errors.count, "error", "errores") %> <%= (@user.errors.count && @user.errors.count > 1 ? "prohibieron" : "prohibio") %> crear el usuario:
+      </b>
+      <ul class="browser-default left-align">
+        <% @user.errors.messages.each do |key, messages| %>
+          <% messages.each do |message| %>
+            <li class="red-text"><%= message %></li>
+          <% end %>
         <% end %>
-        <div class="input-field">
-          <%= form.email_field :email, placeholder: :email %>
-        </div>
-        <div class="field">
-          <%= form.label :fecha_de_nacimiento %>
-          <%= form.date_field :dob %>
-        </div>
-        <div class="row left-align">
-          <div class="field">
-            <strong>Intereses:</strong><br />
-            <% @tags.each do |tag| %>
-              <label>
-                <%= form.check_box :tag_ids, { id: "#{tag.name}", class: "filled-in", multiple: true, value: tag.id }, tag.id.to_s, false %>
-                <span><%= tag.name %></span>
-              </label>
-            <% end %>
-          </div>
-        </div>
-        <%= form.submit "Crear usuario", class: "waves-effect waves-light btn green white-text" %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="input-field">
+    <%= form.email_field :email, placeholder: :email %>
+  </div>
+  <div class="field">
+    <%= form.label :fecha_de_nacimiento %>
+    <%= form.date_field :dob %>
+  </div>
+  <div class="row left-align">
+    <div class="field">
+      <strong>Intereses:</strong><br />
+      <% @tags.each do |tag| %>
+        <label>
+          <%= form.check_box :tag_ids, { id: "#{tag.name}", class: "filled-in", multiple: true, value: tag.id }, tag.id.to_s, false %>
+          <span><%= tag.name %></span>
+        </label>
       <% end %>
-      <br /><%= link_to t('Atras'), root_path, class: "waves-effect waves-light btn orange white-text" %>
     </div>
   </div>
-</div>
+  <%= form.submit "Crear usuario", class: "waves-effect waves-light btn green white-text" %>
+<% end %>
+<br /><%= link_to t('Atras'), root_path, class: "waves-effect waves-light btn orange white-text" %>
 

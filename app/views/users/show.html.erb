@@ -1,30 +1,23 @@
-<div class="container valign-wrapper center-align">
+<i class="large material-icons">account_circle</i>
+<form>
   <div class="row">
-    <div class="col s12 m10 offset-m1 l8 offset-l2">   
-      <i class="large material-icons">account_circle</i>
-      <form>
-        <div class="row">
-          <div class="field">
-            <input placeholder="Nombre" id="first_name" type="text" value="<%= @user.first_name %>">
-          </div>
-        </div>
-        <div class="row">
-          <div class="field">
-            <input placeholder="Apellido" id="last_name" type="text" value="<%= @user.last_name %>">
-          </div>
-        </div>
-        <div class="row">
-          <div class="field">
-            <input placeholder="email" id="email" type="email" value="<%= @user.email %>">
-          </div>
-        </div>
-        <div class="row">
-          <div class="field">
-            <input placeholder="contraseña" id="password" type="password">
-          </div>
-        </div>
-      </form>
+    <div class="field">
+      <input placeholder="Nombre" id="first_name" type="text" value="<%= @user.first_name %>">
     </div>
   </div>
-</div>
-
+  <div class="row">
+    <div class="field">
+      <input placeholder="Apellido" id="last_name" type="text" value="<%= @user.last_name %>">
+    </div>
+  </div>
+  <div class="row">
+    <div class="field">
+      <input placeholder="email" id="email" type="email" value="<%= @user.email %>">
+    </div>
+  </div>
+  <div class="row">
+    <div class="field">
+      <input placeholder="contraseña" id="password" type="password">
+    </div>
+  </div>
+</form>

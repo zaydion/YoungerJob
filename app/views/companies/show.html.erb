@@ -25,5 +25,7 @@
   <%= @company.description %>
 </p>
 
+<%= link_to 'Crear nueva posicion', new_company_post_path(@company) %>
+
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>

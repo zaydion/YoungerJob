@@ -1,15 +1,9 @@
-<div class="container valign-wrapper">
-  <div class="row center-align">
-    <div class="col s12 m10 offset-m1 l8 offset-l2">
-      <%= form_for(@user) do |f| %>
-        <%= f.text_field :first_name, placeholder: :nombre %>
-        <%= f.text_field :last_name, placeholder: :apellido %>
-        <%= f.date_field :dob, min: 16.years.ago, max: 25.years.ago %>
-        <%= f.email_field :email, placeholder: :email %>
-        <%= f.telephone_field :phone_number, placeholder: :numero_telefonico %>
-        <%= f.password_field :identification_number, placeholder: :cedula %>
-        <%= f.submit "Update usuario", class: :btn %>
-      <% end %>
-    </div>
-  </div>
-</div>
+<%= form_for(@user) do |f| %>
+  <%= f.text_field :first_name, placeholder: :nombre %>
+  <%= f.text_field :last_name, placeholder: :apellido %>
+  <%= f.date_field :dob, min: 16.years.ago, max: 25.years.ago %>
+  <%= f.email_field :email, placeholder: :email %>
+  <%= f.telephone_field :phone_number, placeholder: :numero_telefonico %>
+  <%= f.password_field :identification_number, placeholder: :cedula %>
+  <%= f.submit "Update usuario", class: :btn %>
+<% end %>

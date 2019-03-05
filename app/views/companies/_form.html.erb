@@ -1,4 +1,4 @@
-<%= form_with(model: company, local: true) do |form| %>
+<%= form_with(model: company, local: true, class: "left-align") do |form| %>
   <% if company.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
@@ -11,32 +11,32 @@
     </div>
   <% end %>
 
-  <div class="input-field">
+  <div class="field">
     <%= form.label :nombre %>
     <%= form.text_field :name %>
   </div>
 
-  <div class="input-field">
+  <div class="field">
     <%= form.label :email %>
     <%= form.text_field :email %>
   </div>
 
-  <div class="input-field">
+  <div class="field">
     <%= form.label :numero %>
     <%= form.text_field :phone_number %>
   </div>
 
-  <div class="input-field">
+  <div class="field">
     <%= form.label :direccion %>
     <%= form.text_field :address %>
   </div>
 
-  <div class="input-field">
+  <div class="field">
     <%= form.label :descripcion %>
     <%= form.text_field :description %>
   </div>
 
-  <div class="actions">
+  <div class="actions center-align">
     <%= form.submit "Crear Compañia", class: "waves-effect waves-light btn green white-text" %>
   </div>
 <% end %>

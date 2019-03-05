@@ -1,32 +1,40 @@
-<%= form_with(model: post, local: true) do |form| %>
+<%= form_with(model: post, url: [@company, @company.posts.build], class: "left-align", local: true) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+      <b>
+        <%= pluralize(@post.errors.count, "error", "errores") %> <%= (@post.errors.count && @post.errors.count > 1 ? "prohibieron" : "prohibio") %> crear el usuario:
+      </b>
+      <ul class="browser-default left-align">
+        <% @post.errors.messages.each do |key, messages| %>
+          <% messages.each do |message| %>
+            <li class="red-text"><%= message %></li>
+          <% end %>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :titulo %>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
+    <%= form.label :descripcion %>
     <%= form.text_field :description %>
   </div>
 
-  <div class="field">
-    <%= form.label :company_id %>
-    <%= form.text_field :company_id %>
+  <div class="field left-align">
+    <strong>Intereses:</strong><br />
+    <% @tags.each do |tag| %>
+      <label>
+        <%= form.check_box :tag_ids, { id: "#{tag.name}", class: "filled-in", checked: @post.tags.include?(tag), multiple: true, value: tag.id }, tag.id.to_s, false %>
+        <span><%= tag.name %></span>
+      </label>
+    <% end %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions center-align">
+    <%= form.submit class: :btn %>
   </div>
 <% end %>
