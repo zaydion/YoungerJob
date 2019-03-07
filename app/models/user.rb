@@ -12,4 +12,7 @@ class User < ApplicationRecord
   # validates :first_name, :last_name, length: { minimum: 2 }
   has_many :user_tags, dependent: :destroy
   has_many :tags, through: :user_tags
+  has_secure_password
+  before_save { self.email = email.downcase }
+
 end

@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
   def index
-    @company = Company.find(params[:company_id])
+    @company = Company.includes(:posts).find(params[:company_id])
     @posts = @company.posts
   end
 
@@ -15,20 +15,22 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @company = Company.find(params[:company_id])
+    @company = Company.includes(:posts).find(params[:company_id])
     @post = @company.posts.new
     @tags = Tag.all
   end
 
   # GET /posts/1/edit
   def edit
+    @company = Company.includes(:posts).find(params[:company_id])
+    @post = @company.posts.includes(:tags).find(params[:id])
     @tags = Tag.all
   end
 
   # POST /posts
   # POST /posts.json
   def create
-    @company = Company.find(params[:company_id])
+    @company = Company.includes(:posts).find(params[:company_id])
     @post = @company.posts.new(post_params)
     @tags = Tag.all
 
@@ -70,7 +72,7 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @company = Company.find(params[:company_id])
+      @company = Company.includes(:posts).find(params[:company_id])
       @post = @company.posts.find(params[:id])
     end
 

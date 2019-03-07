@@ -18,11 +18,10 @@
       <tr>
         <td><%= post.title %></td>
         <td><%= post.description %></td>
-        <td><%= post.company.name %></td>
+        <td><%= link_to post.company.name, @company %></td>
         <% post.tags.each do |tag| %>
           <td><%= tag.name %></td>
         <% end %>
-        <td><%= post.company.name %></td>
         <td><%= link_to 'Show', [@company, post] %></td>
         <td><%= link_to 'Edit', edit_company_post_path(@company, post) %></td>
         <td><%= link_to 'Destroy', [@company, post], method: :delete, data: { confirm: 'Are you sure?' } %></td>

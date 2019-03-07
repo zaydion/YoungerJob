@@ -1,0 +1,38 @@
+<h5>Iniciar sesion</h5>
+<%= form_for(:session, url: url, local: true, class: "left-align") do |form| %>
+  <%# if user.errors.any? %>
+    <%# <div id="error_explanation"> %>
+        <%#= pluralize(user.errors.count, "error", "errores") %> <%#= (user.errors.count && user.errors.count > 1 ? "prohibieron" : "prohibio") %> iniciar la sesion:
+      <%# <ul> %>
+      <%# user.errors.full_messages.each do |message| %>
+        <!-- <li><%#= message %></li> -->
+      <%# end %>
+      <%# </ul> %>
+    <%# </div> %>
+  <%# end %>
+
+  <div class="field">
+    <%= form.hidden_field :user_type, value: user_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contraseña %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :confirmar_contraseña %>
+    <%= form.password_field :password_confirmation %>
+  </div>
+
+  <div class="actions center-align">
+    <%= form.submit "Crear Compañia", class: "waves-effect waves-light btn green white-text" %>
+  </div>
+<% end %>
+
+
