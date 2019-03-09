@@ -6,9 +6,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    puts("#"*100)
-    puts(session_params)
-    puts("#"*100)
     user_type = session_params[:user_type].downcase
     if user_type == 'user'
       user_create
@@ -20,9 +17,10 @@ class SessionsController < ApplicationController
   def company_create
     company = Company.find_by(email: params[:session][:email].downcase)
     if company && company.authenticate(params[:session][:password])
-      print "company yes"
+      log_in_company(company)
+      redirect_to company
     else
-      puts "company nope"
+      flash.now[:danger] = "Combinación de correo electrónico / contraseña no válida"
       render :company_new
     end
   end
@@ -31,14 +29,17 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     puts("user: #{user}")
     if user && user.authenticate(params[:session][:password])
-      puts "user login"
+      log_in_user(user)
+      redirect_to company
     else
-      puts "user nope"
+      flash.now[:danger] = "Combinación de correo electrónico / contraseña no válida"
       render :user_new
     end
   end
 
   def destroy
+    log_out
+    redirect_to root_url
   end
 
   private

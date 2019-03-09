@@ -1,1 +1,5 @@
 <%= render 'form', url: company_login_path, user_type: "company" %>
+<br/>
+<%= link_to t('Atras'), :back, class: "waves-effect waves-light btn orange white-text" %>
+<br/>
+<p>No tiene cuenta? <%= link_to 'Crear Compañia', new_company_path %></p>

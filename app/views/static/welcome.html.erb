@@ -4,11 +4,10 @@
 <%# this should be links to student and company portals respectively. %>
 <%# once on the portal page, student and/or company will be prompted to login or signup %>
 <div class="row">
-  <p>buscando empleo?</p>
-  <%= link_to t('Crear usuario'), new_user_path, class: "waves-effect waves-light btn" %>
+  <%= link_to t('Iniciar Sesion'), user_login_path, class: "waves-effect waves-light btn" %>
 </div> 
 
-<div class="row">
-  <p>buscando empleadores?</p>
-  <%= link_to t('Crear compañia'), new_company_path, class: "waves-effect waves-light btn blue" %>
+
+<div>
+  <p>Compañia? <%= link_to t('Portal de la Empresa'), company_login_path %></p>
 </div> 
