@@ -1,3 +1,9 @@
+<% if current_user == @user %>
+  <h5><%= @user.email %> logged in</h5>
+<% end %>
+
+age: <%= @user.age %>
+
 <i class="large material-icons">account_circle</i>
 <form>
   <div class="row">

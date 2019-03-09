@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<% if current_user == @company %>
+  <h5><%= @company.email %> logged in</h5>
+<% end %>
+
 <p>
   <strong>Name:</strong>
   <%= @company.name %>

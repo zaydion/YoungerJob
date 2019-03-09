@@ -29,7 +29,7 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.save
-        log_in @company
+        log_in_company @company
         format.html { redirect_to @company, notice: 'Company was successfully created.' }
         format.json { render :show, status: :created, location: @company }
       else
@@ -71,6 +71,6 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:name, :email, :phone_number, :address, :description)
+      params.require(:company).permit(:name, :email, :phone_number, :address, :description, :password, :password_confirmation)
     end
 end

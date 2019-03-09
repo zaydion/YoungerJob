@@ -15,4 +15,7 @@ class User < ApplicationRecord
   has_secure_password
   before_save { self.email = email.downcase }
 
+  def age
+    ((Time.zone.now - self.dob.to_time) / 1.year.seconds).floor
+  end
 end

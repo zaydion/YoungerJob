@@ -2,7 +2,7 @@
 <%= form_for(:session, url: url, local: true, class: "left-align") do |form| %>
   <%# if user.errors.any? %>
     <%# <div id="error_explanation"> %>
-        <%#= pluralize(user.errors.count, "error", "errores") %> <%#= (user.errors.count && user.errors.count > 1 ? "prohibieron" : "prohibio") %> iniciar la sesion:
+        <!-- <%#= pluralize(user.errors.count, "error", "errores") %> <%#= (user.errors.count && user.errors.count > 1 ? "prohibieron" : "prohibio") %> iniciar la sesion: -->
       <%# <ul> %>
       <%# user.errors.full_messages.each do |message| %>
         <!-- <li><%#= message %></li> -->
@@ -25,10 +25,10 @@
     <%= form.password_field :password %>
   </div>
 
-  <div class="field">
-    <%= form.label :confirmar_contraseña %>
-    <%= form.password_field :password_confirmation %>
-  </div>
+  <!-- <div class="field"> -->
+    <%#= form.label :confirmar_contraseña %>
+    <%#= form.password_field :password_confirmation %>
+  <!-- </div> -->
 
   <div class="actions center-align">
     <%= form.submit "Iniciar sesion", class: "waves-effect waves-light btn green white-text" %>

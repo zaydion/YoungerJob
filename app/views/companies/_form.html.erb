@@ -10,30 +10,39 @@
       </ul>
     </div>
   <% end %>
+  <div class="row">
+    <div class="field">
+      <%= form.label :nombre %>
+      <%= form.text_field :name %>
+    </div>
 
-  <div class="field">
-    <%= form.label :nombre %>
-    <%= form.text_field :name %>
-  </div>
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_field :email %>
+    </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+    <div class="field">
+      <%= form.label :numero %>
+      <%= form.text_field :phone_number %>
+    </div>
 
-  <div class="field">
-    <%= form.label :numero %>
-    <%= form.text_field :phone_number %>
-  </div>
+    <div class="field">
+      <%= form.label :direccion %>
+      <%= form.text_field :address %>
+    </div>
 
-  <div class="field">
-    <%= form.label :direccion %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :descripcion %>
-    <%= form.text_field :description %>
+    <div class="field">
+      <%= form.label :descripcion %>
+      <%= form.text_field :description %>
+    </div>
+    <div class="field">
+      <%= form.label :contraseña %>
+      <%= form.password_field :password %>
+    </div>
+    <div class="field">
+      <%= form.label :confirmar_contraseña %>
+      <%= form.password_field :password_confirmation %>
+    </div>
   </div>
 
   <div class="actions center-align">
