@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
+  skip_before_action :require_login, only: [:new, :create]
 
   # GET /companies
   # GET /companies.json

@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :show, :update, :destroy]
   before_action :set_tags, only: [:new, :create, :edit, :update]
+  skip_before_action :require_login, only: [:new, :create]
+
   def new
     @user = User.new
   end
