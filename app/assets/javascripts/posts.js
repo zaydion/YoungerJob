@@ -2,6 +2,6 @@
 // All this logic will automatically be available in application.js.
 
 
-$( document ).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function() {
   $('select').formSelect();
 });

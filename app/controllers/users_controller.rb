@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :show, :update, :destroy]
+  before_action :set_user_include_tags, only: [:show, :edit, :update]
+  before_action :set_user, only: [:destroy]
   before_action :set_tags, only: [:new, :create, :edit, :update]
+  before_action :require_current_user, only: [:edit, :update]
   skip_before_action :require_login, only: [:new, :create]
 
   def new
@@ -53,6 +55,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def set_user_include_tags
+    @user = User.includes(:tags).find(params[:id])
+  end
+
   def set_tags
     @tags = Tag.all
   end
@@ -65,6 +71,8 @@ class UsersController < ApplicationController
       :email, 
       :phone_number,
       :password,
+      :avatar,
+      :description,
       tag_ids: []
     )
   end

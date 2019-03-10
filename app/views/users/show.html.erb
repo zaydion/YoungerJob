@@ -4,7 +4,12 @@
 
 age: <%= @user.age %>
 
-<i class="large material-icons">account_circle</i>
+<% if @user.avatar.attached? %>
+  <%= image_tag @user.avatar, size: "100x100" %>
+  <!-- <img class="materialboxed" width="650" src="<%#= @user.avatar.filename %>"> -->
+<% else %>
+  <i class="large material-icons">account_circle</i>
+<% end %>
 <form>
   <div class="row">
     <div class="field">

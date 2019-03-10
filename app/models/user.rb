@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :tags, through: :user_tags
   has_secure_password
   before_save { self.email = email.downcase }
+  has_one_attached :avatar
 
   def age
     ((Time.zone.now - self.dob.to_time) / 1.year.seconds).floor
