@@ -15,13 +15,13 @@ module SessionHelper
     end
   end
 
-  # def require_current_user
-  #   if logged_in_as_user?
-  #     current_user == @user
-  #   elsif logged_in_as_company?
-  #     current_user == @company
-  #   end
-  # end
+  def require_current_user
+    if logged_in_as_user?
+      current_user == @user
+    elsif logged_in_as_company?
+      current_user == @company
+    end
+  end
 
   def logged_in?
     !current_user.nil?

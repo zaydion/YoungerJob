@@ -2,15 +2,29 @@
   <h5><%= @user.email %> logged in</h5>
 <% end %>
 
-age: <%= @user.age %>
+<div>
+  <% if @user.avatar.attached? %>
+    <%= image_tag @user.avatar, size: "100x100" %>
+  <% else %>
+    <i class="large material-icons">account_circle</i>
+  <% end %>
+</div>
 
-<% if @user.avatar.attached? %>
-  <%= image_tag @user.avatar, size: "100x100" %>
-  <!-- <img class="materialboxed" width="650" src="<%#= @user.avatar.filename %>"> -->
-<% else %>
-  <i class="large material-icons">account_circle</i>
-<% end %>
-<form>
+<div>
+  <%= link_to "Mis trabajos ideales", user_matches_path(@user), class: "btn green" %>
+</div>
+
+<div>
+  <div class="row">
+    <div class="field">
+        age: <%= @user.age %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="field">
+      <%= link_to @user.resume.filename, rails_blob_path(@user.resume, disposition: 'attachment') %>
+    </div>
+  </div>
   <div class="row">
     <div class="field">
       <input placeholder="Nombre" id="first_name" type="text" value="<%= @user.first_name %>">
@@ -31,4 +45,4 @@ age: <%= @user.age %>
       <input placeholder="contraseña" id="password" type="password">
     </div>
   </div>
-</form>
+</div>

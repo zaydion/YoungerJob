@@ -10,10 +10,10 @@
   <%= @post.description %>
 </p>
 
-<p>
-  <strong>Company:</strong>
-  <%= @post.company %>
-</p>
+
+<div class="row">
+  <%= link_to 'Me Interesa!', '#', class: :btn %>
+</div>
 
 <%= link_to 'Edit', edit_company_post_path(@company, @post) %> |
 <%= link_to 'Back', company_posts_path(@company) %>

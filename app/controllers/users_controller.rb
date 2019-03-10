@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user_include_tags, only: [:show, :edit, :update]
-  before_action :set_user, only: [:destroy]
+  before_action :set_user, only: [:matches, :destroy]
   before_action :set_tags, only: [:new, :create, :edit, :update]
   before_action :require_current_user, only: [:edit, :update]
   skip_before_action :require_login, only: [:new, :create]
@@ -50,6 +50,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def matches
+    @posts = @user.matches
+  end
+
   private
   def set_user
     @user = User.find(params[:id])
@@ -73,6 +77,7 @@ class UsersController < ApplicationController
       :password,
       :avatar,
       :description,
+      :resume,
       tag_ids: []
     )
   end

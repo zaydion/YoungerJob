@@ -17,12 +17,20 @@
   <div class="row">
     <div class="file-field field">
       <div class="btn">
-        <span>File</span>
+        <span>Foto</span>
         <%= form.file_field :avatar %>
       </div>
       <div class="file-path-wrapper">
         <input class="file-path validate" type="text" placeholder="Sube una foto de perfil">
-        
+      </div>
+    </div>
+    <div class="file-field field">
+      <div class="btn blue">
+        <span>Currículum</span>
+        <%= form.file_field :resume %>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text" placeholder="Sube currículum">
       </div>
     </div>
     <div class="field">
@@ -47,7 +55,9 @@
     </div>
     <div class="field">
       <%= form.label :escribi_un_poco_sobre_ti %>
-      <%= form.text_area :description, size: '50x50', class: "materialize-textarea" %>
+      <%= form.text_area :description, size: '100x500', class: "materialize-textarea", placeholder: "Las fortalezas centrales y los conjuntos de habilidades más relevantes para el rol
+      Experiencia relevante pasada con funciones clave.
+      Logros notables que pretende repetir en el próximo rol" %>
     </div>
     <div class="field">
       <%= form.label :contraseña %>
