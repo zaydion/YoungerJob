@@ -10,9 +10,11 @@
   <% end %>
 </div>
 
+<% if @user.resume.attached? %>
 <div>
   <%= link_to "Mis trabajos ideales", user_matches_path(@user), class: "btn green" %>
 </div>
+<% end %>
 
 <div>
   <div class="row">
@@ -20,11 +22,13 @@
         age: <%= @user.age %>
     </div>
   </div>
-  <div class="row">
-    <div class="field">
-      <%= link_to @user.resume.filename, rails_blob_path(@user.resume, disposition: 'attachment') %>
+  <% if @user.resume.attached? %>
+    <div class="row">
+      <div class="field">
+        <%= link_to @user.resume.filename, rails_blob_path(@user.resume, disposition: 'attachment') %>
+      </div>
     </div>
-  </div>
+  <% end %>
   <div class="row">
     <div class="field">
       <input placeholder="Nombre" id="first_name" type="text" value="<%= @user.first_name %>">
