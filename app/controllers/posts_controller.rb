@@ -74,7 +74,7 @@ class PostsController < ApplicationController
       post: @post,
       company: @company,
       subject: params[:subject],
-      body: params[:body]
+      body: params[:body],
     ).interested_email.deliver_now
 
     redirect_to [@company, @post]
