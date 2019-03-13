@@ -1,0 +1,9 @@
+<h1>Prep Email</h1>
+
+
+<%= form_tag(company_post_send_email_path(@post.company, @post), method: "post") do %>
+  <%= label_tag(:email, "Email") %>
+  <%= text_field_tag(:subject) %>
+  <%= text_area_tag(:body) %>
+  <%= submit_tag("Mandar Email", class: "btn") %>
+<% end %>
