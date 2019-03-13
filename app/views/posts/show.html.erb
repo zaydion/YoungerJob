@@ -12,8 +12,8 @@
 
 
 <div class="row">
-  <%= link_to 'Me Interesa!', '#', class: :btn %>
+  <%= link_to 'Me Interesa!', company_post_new_email_path(@post.company, @post), class: :btn %>
 </div>
 
-<%= link_to 'Edit', edit_company_post_path(@company, @post) %> |
-<%= link_to 'Back', company_posts_path(@company) %>
+<%= link_to 'Edit', edit_company_post_path(@post.company, @post) %> |
+<%= link_to 'Back', company_posts_path(@post.company) %>

@@ -20,6 +20,10 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_one_attached :resume
 
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
   def age
     ((Time.zone.now - self.dob.to_time) / 1.year.seconds).floor
   end

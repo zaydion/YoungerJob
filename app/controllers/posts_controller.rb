@@ -59,6 +59,27 @@ class PostsController < ApplicationController
     end
   end
 
+  def new_email
+    @user = current_user
+    @post = Post.includes(:company).find(params[:post_id])
+    @company = @post.company
+  end
+
+  def send_email
+    @user = current_user
+    @post = Post.includes(:company).find(params[:post_id])
+    @company = @post.company
+    UserMailer.with(
+      user: @user,
+      post: @post,
+      company: @company,
+      subject: params[:subject],
+      body: params[:body]
+    ).interested_email.deliver_now
+
+    redirect_to [@company, @post]
+  end
+
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy

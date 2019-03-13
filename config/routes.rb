@@ -8,10 +8,14 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   resources :companies, except: [:index] do
-    resources :posts
+    resources :posts do
+      get '/new_email', to: 'posts#new_email'
+      post '/send_email', to: 'posts#send_email'
+    end
   end
 
   resources :users, except: [:index]
   get 'users/:id/matches', to: 'users#matches', as: :user_matches
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
