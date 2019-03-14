@@ -1,3 +1,4 @@
-.container {
-  height: 100%
+.users-background {
+  background-repeat: no-repeat;
+  background: linear-gradient(to top, rgb(252, 74, 26), rgb(247, 183, 51));
 }

@@ -1,4 +1,7 @@
+
 <p id="notice"><%= notice %></p>
+
+<p><%= @post.company.name %></p>
 
 <p>
   <strong>Title:</strong>
@@ -10,10 +13,21 @@
   <%= @post.description %>
 </p>
 
+<div>
+  <% @post.tags.each do |tag| %>
+    <div class="chip">
+      <%= tag.name %>
+    </div>
+  <% end %>
+</div>
+
 
 <div class="row">
   <%= link_to 'Me Interesa!', company_post_new_email_path(@post.company, @post), class: :btn %>
 </div>
 
-<%= link_to 'Edit', edit_company_post_path(@post.company, @post) %> |
+<% if current_user == @post.company %>
+  <%= link_to 'Edit', edit_company_post_path(@post.company, @post) %> |
+  <%= link_to 'Destroy', [@post.company, @post], method: :delete, data: { confirm: 'Are you sure?' } %> | 
+<% end %>
 <%= link_to 'Back', company_posts_path(@post.company) %>

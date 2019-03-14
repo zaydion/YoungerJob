@@ -1,0 +1,8 @@
+.posts-background {
+  background: linear-gradient(to top, rgb(58, 28, 113), rgb(215, 109, 119), rgb(255, 175, 123));
+}
+
+.chip {
+  padding: 0 8px;
+  font-size: 11px;
+}

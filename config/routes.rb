@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   end
 
   resources :users, except: [:index]
-  get 'users/:id/matches', to: 'users#matches', as: :user_matches
+  get '/users/:id/matches', to: 'users#matches', as: :user_matches
+  get '/posts', to: 'posts#all_posts'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

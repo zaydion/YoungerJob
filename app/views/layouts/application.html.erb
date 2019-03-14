@@ -19,37 +19,42 @@
 
   <body>
     <nav>
-      <div class="nav-wrapper">
-        <a href="<%= root_path %>" class="brand-logo">Logo</a>
-        <a data-target="mobile-demo" class="sidenav-trigger hide-on-med-and-up"><i class="material-icons">menu</i></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down show-on-medium-and-up">
-          <li><%= link_to "Inicio", root_path %></li>
-          <li><a href="badges.html">Components</a></li>
+      <div class="nav-wrapper white">
+        <ul class="nav-items">
+          <li>
+            <%= link_to(root_path) do %>
+              <i class="material-icons orange-text">home</i>
+            <% end %>
+          </li>
+          <% if logged_in_as_user? %>
+            <li>
+              <%= link_to user_path(current_user) do %>
+                <i class="material-icons green-text darken-4" alt="person">person</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to user_matches_path(current_user) do %>
+                <i class="material-icons yellow-text" alt="person">star</i>
+              <% end %>
+            </li>
+            <% elsif logged_in_as_company? %>
+            <li>
+              <%= link_to company_path(current_user) do %>
+                <i class="material-icons orange-text" alt="person">person</i>
+              <% end %>
+            </li>
+          <% end%>
           <% if logged_in? %>
-            <% if logged_in_as_user? %>
-              <li><%= link_to "Ver mi perfil", user_path(current_user) %></li>
-              <% elsif logged_in_as_company? %>
-              <li><%= link_to "Ver mi perfil", company_path(current_user) %></li>
-              <% end%>
-            <li><%= link_to "Cerrar sesion", logout_path %></li>
+            <li>
+              <%= link_to logout_path, class: "black-text align-icon-with-text" do %>
+                Salir <i class="material-icons" alt="exit">exit_to_app</i>
+              <% end %>
+            </li>
           <% end %>
         </ul>
       </div>
     </nav>
-      <ul class="sidenav" id="mobile-demo">
-        <li><%= link_to "Inicio", root_path %></li>
-        <% if logged_in? %>
-          <% if logged_in_as_user? %>
-            <li><%= link_to "Ver mi perfil", user_path(current_user) %></li>
-          <% elsif logged_in_as_company? %>
-            <li><%= link_to "Ver mi perfil", company_path(current_user) %></li>
-          <% end%>
-          <li><%= link_to "Cerrar sesion", logout_path %></li>
-        <% end %>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-      </ul>
-    <div class="container">
+    <div class="container <%= yield (:body_class) %>">
       <div class="row center-align">
         <div class="col s12 m10 offset-m1 l8 offset-l2">
           <%= yield %>

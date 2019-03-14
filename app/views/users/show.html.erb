@@ -1,3 +1,5 @@
+<% content_for :body_class, "users-background" %>
+
 <p id="notice"><%= notice %></p>
 
 <% if current_user == @user %>
@@ -6,7 +8,7 @@
 
 <div>
   <% if @user.avatar.attached? %>
-    <%= image_tag @user.avatar, size: "100x100" %>
+    <%= image_tag @user.avatar, size: "100x100", class: "circle" %>
   <% else %>
     <i class="large material-icons">account_circle</i>
   <% end %>
@@ -19,7 +21,7 @@
 <div>
   <div class="row">
     <div class="field">
-        age: <%= @user.age %>
+        edad: <%= @user.age %>
     </div>
   </div>
   <% if @user.resume.attached? %>
@@ -44,9 +46,11 @@
       <input placeholder="email" id="email" type="email" value="<%= @user.email %>">
     </div>
   </div>
-  <div class="row">
-    <div class="field">
-      <input placeholder="contraseña" id="password" type="password">
-    </div>
-  </div>
+  <blockquote class="left-align">
+    <%= @user.description %>
+  </blockquote>
 </div>
+
+<% if current_user == @user %>
+<%= link_to 'Editar usuario', edit_user_path(@user), class: :btn %>
+<% end %>

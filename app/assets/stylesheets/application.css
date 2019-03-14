@@ -17,3 +17,17 @@
  html, body {
    height: 100%;
  }
+
+ .container {
+   height: 100%;
+   width: 100%;
+ }
+
+ .nav-items {
+  display: flex;
+  justify-content: space-around;
+}
+
+ .align-icon-with-text {
+   display: inline-flex;
+ }

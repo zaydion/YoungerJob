@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
 
+  def all_posts
+    @posts = Post.all
+  end
+
   # GET /posts
   # GET /posts.json
   def index

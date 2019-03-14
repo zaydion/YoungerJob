@@ -1,35 +1,9 @@
+
+<% content_for :body_class, "posts-background" %>
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Company</th>
-      <th>Tags</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= link_to post.title, company_post_path(post.company, post) %></td>
-        <td><%= post.description %></td>
-        <td><%= link_to post.company.name, @company %></td>
-        <% post.tags.each do |tag| %>
-          <td><%= tag.name %></td>
-        <% end %>
-        <td><%= link_to 'Show', [@company, post] %></td>
-        <td><%= link_to 'Edit', edit_company_post_path(@company, post) %></td>
-        <td><%= link_to 'Destroy', [@company, post], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<h5>Posiciones</h5>
 
 <%= link_to 'New Post', new_company_post_path(@company) %>
+<%= render partial: 'posts', collection: @posts %>
+
