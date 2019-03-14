@@ -1,3 +1,10 @@
-<h5>Matches:</h5>
+<% content_for :body_class, "matches-background" %>
 
-<%= render partial: 'posts/posts', collection: @posts %>
+
+<% if @posts.empty? %>
+  <h5>No hay posiciones disponibles</h5>
+<% else %>
+  <h5>Trabajos Ideales</h5>
+  <%= render partial: 'posts/posts', object: @posts %>
+<% end %>
+

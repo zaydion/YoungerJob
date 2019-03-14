@@ -1,3 +1,7 @@
+.all-posts-background {
+  background: linear-gradient(rgb(41, 128, 185), rgb(109, 213, 250), rgb(255, 255, 255));
+}
+
 .posts-background {
   background: linear-gradient(to top, rgb(58, 28, 113), rgb(215, 109, 119), rgb(255, 175, 123));
 }

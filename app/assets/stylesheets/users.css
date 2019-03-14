@@ -1,4 +1,7 @@
 .users-background {
-  background-repeat: no-repeat;
   background: linear-gradient(to top, rgb(252, 74, 26), rgb(247, 183, 51));
+}
+
+.matches-background {
+  background: linear-gradient(rgb(255, 65, 108), rgb(255, 75, 43));
 }

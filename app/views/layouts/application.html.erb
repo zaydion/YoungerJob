@@ -18,42 +18,42 @@
   </head>
 
   <body>
-    <nav>
-      <div class="nav-wrapper white">
-        <ul class="nav-items">
-          <li>
-            <%= link_to(root_path) do %>
-              <i class="material-icons orange-text">home</i>
-            <% end %>
-          </li>
-          <% if logged_in_as_user? %>
-            <li>
-              <%= link_to user_path(current_user) do %>
-                <i class="material-icons green-text darken-4" alt="person">person</i>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to user_matches_path(current_user) do %>
-                <i class="material-icons yellow-text" alt="person">star</i>
-              <% end %>
-            </li>
+    <% if logged_in? %>
+      <nav>
+        <div class="nav-wrapper white">
+          <ul class="nav-items">
+            <% if logged_in_as_user? %>
+              <li>
+                <%= link_to user_path(current_user) do %>
+                  <i class="material-icons green-text darken-4" alt="person">person</i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to user_matches_path(current_user) do %>
+                  <i class="material-icons yellow-text" alt="person">star</i>
+                <% end %>
+              </li>
             <% elsif logged_in_as_company? %>
+              <li>
+                <%= link_to company_path(current_user) do %>
+                  <i class="material-icons green-text darken-4" alt="person">person</i>
+                <% end %>
+              </li>
+            <% end%>
             <li>
-              <%= link_to company_path(current_user) do %>
-                <i class="material-icons orange-text" alt="person">person</i>
+              <%= link_to(posts_path) do %>
+                <i class="material-icons blue-text darken-4">list</i>
               <% end %>
             </li>
-          <% end%>
-          <% if logged_in? %>
             <li>
               <%= link_to logout_path, class: "black-text align-icon-with-text" do %>
                 Salir <i class="material-icons" alt="exit">exit_to_app</i>
               <% end %>
             </li>
-          <% end %>
-        </ul>
-      </div>
-    </nav>
+          </ul>
+        </div>
+      </nav>
+    <% end %>
     <div class="container <%= yield (:body_class) %>">
       <div class="row center-align">
         <div class="col s12 m10 offset-m1 l8 offset-l2">

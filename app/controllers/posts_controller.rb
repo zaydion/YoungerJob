@@ -2,7 +2,11 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
 
   def all_posts
-    @posts = Post.all
+    if logged_in_as_user?
+      @posts = Post.includes(:company).where.not(id: current_user.matches.pluck(:id))
+    elsif logged_in_as_company?
+      @posts = @company.posts
+    end
   end
 
   # GET /posts
