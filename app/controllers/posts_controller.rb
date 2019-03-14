@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def all_posts
     if logged_in_as_user?
-      @posts = Post.includes(:company).where.not(id: current_user.matches.pluck(:id))
+      @posts = Post.includes(:company).where.not(id: current_user.matches.pluck(:id)).where(id: current_user.allowed_posts_by_job_type)
     elsif logged_in_as_company?
       @posts = @company.posts
     end
