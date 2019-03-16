@@ -8,7 +8,7 @@ class PostsController < ApplicationController
                 .where(id: current_user.allowed_posts_by_job_type)
                 .where.not(id: current_user.matches)
     elsif logged_in_as_company?
-      @posts = @company.posts
+      @posts = current_user.posts
     end
   end
 
