@@ -1,0 +1,18 @@
+.companies-background {
+  background: linear-gradient(to top, rgb(41, 128, 185), rgb(109, 213, 250), rgb(145, 234, 228));
+}
+
+.edit .profile-content {
+  padding: 10px
+}
+
+.edit .grid {
+  margin-top: 20px;
+}
+
+.edit .default-avatar {
+  background: #f6f6f6;
+  border-radius: 50%;
+  padding: 8px;
+  border: 5px solid white;
+}

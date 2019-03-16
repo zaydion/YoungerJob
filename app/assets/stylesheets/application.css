@@ -19,9 +19,15 @@
  }
 
  .container {
-   height: 100%;
+   min-height: 100%;
+   height: initial;
    width: 100%;
  }
+
+.users-background, .matches-background, .companies-background, .edit .row {
+  margin-bottom: 0;
+  padding-bottom: 20px;
+}
 
  .nav-items {
   display: flex;
@@ -58,4 +64,8 @@ input[type="checkbox"].filled-in:checked+span:not(.lever)::before {
   border-left: 1px solid transparent;
   border-right: 3px solid #fff;
   border-bottom: 3px solid #fff;
+}
+
+.edit {
+  background-color: #f6f6f6;
 }

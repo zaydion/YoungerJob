@@ -6,17 +6,7 @@
   background: linear-gradient(to top, rgb(252, 74, 26), rgb(247, 183, 51));
 }
 
-.matches-background.container {
-  min-height: 100%;
-  height: initial;
-}
-
-.users-background.container {
-  min-height: 100%;
-  height: initial;
-}
-
-.users-background, .matches-background .row {
+.users-background, .matches-background, .companies-background .row {
   margin-bottom: 0;
   padding-bottom: 20px;
 }
@@ -32,13 +22,30 @@
  margin-bottom: -95px;
 }
 
+.default-avatar {
+  background: linear-gradient(to top, rgb(248,152,43), rgb(247,179,50));
+  border-radius: 50%;
+}
+
+.companies-background .default-avatar {
+  background: linear-gradient(to top, rgb(134,227,234), rgb(142,232,229));
+  padding: 10px;
+  border: 5px solid white;  
+}
+
+.profile-content.bottom-attached {
+  margin-top: -45px;
+}
+
 .profile-content {
-  padding-bottom: 20px;
+  padding-bottom: 20px !important;
   border-radius: 10px;
 }
 
 .profile-content .top.section {
   padding-top: 7rem;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .profile-content .light-padding {
@@ -53,7 +60,7 @@
 
 /* Edit User Form */
 
-.edit-user.form {
+.edit-user.form, .profile-content form {
   padding: 10px;
   margin-top: 20px;
 }

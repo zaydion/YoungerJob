@@ -9,7 +9,7 @@
     <i class="large material-icons default-avatar">account_circle</i>
   <% end %>
 
-  <div class="profile-content white">
+  <div class="profile-content white <%= !@user.avatar.attached? ? 'bottom-attached' : '' %>">
     <div class="top section">
       <h4><b><%= @user.full_name %></b></h4>
       <h5 class="grey-text"><b><i><%= @user.age %> años</i></b></h5>

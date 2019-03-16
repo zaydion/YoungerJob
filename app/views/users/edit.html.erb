@@ -20,7 +20,7 @@
         <div class="file-field field">
           <div>
             <i class="large material-icons teal-text lighten-2">add_a_photo</i>
-            <%= form.file_field :avatar, hint: image_tag(form.object.avatar, size: "200x200", class: "circle user-avatar") %>
+            <%= form.file_field :avatar %>
           </div>
           <div class="file-path-wrapper">
             <input class="file-path validate" type="text" placeholder="Sube una foto">
@@ -91,6 +91,12 @@
     <%= form.submit "Actualizar usuario", class: "waves-effect waves-light btn green white-text" %>
   <% end %>
   <%= link_to t('Atras'), :back, class: "waves-effect waves-light btn orange white-text" %>
+  <p>
+    <%= link_to 'Borrar', @user, method: :delete, 
+        data: { confirm: 'Confirma que quiere borrar su cuenta?' }, 
+        class: "btn-flat lighten-2 red white-text" %>
+  </p>
+  </p>
 </div>
 
 

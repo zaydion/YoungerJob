@@ -30,19 +30,24 @@
               </li>
               <li>
                 <%= link_to user_matches_path(current_user) do %>
-                  <i class="material-icons yellow-text" alt="person">star</i>
+                  <i class="material-icons yellow-text" alt="star">star</i>
                 <% end %>
               </li>
             <% elsif logged_in_as_company? %>
               <li>
                 <%= link_to company_path(current_user) do %>
-                  <i class="material-icons green-text darken-4" alt="person">person</i>
+                  <i class="material-icons orange-text darken-4" alt="person">person</i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_company_post_path(current_user) do %>
+                  <i class="material-icons green-text" alt="add">add</i>
                 <% end %>
               </li>
             <% end%>
             <li>
               <%= link_to(posts_path) do %>
-                <i class="material-icons blue-text darken-4">list</i>
+                <i class="material-icons blue-text darken-4" alt="list">list</i>
               <% end %>
             </li>
             <li>

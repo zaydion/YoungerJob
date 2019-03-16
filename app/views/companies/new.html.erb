@@ -1,5 +1,10 @@
-<h5>Crear Compañia</h5>
-<%= render 'form', company: @company %>
-<br/><%= link_to t('Atras'), :back, class: "waves-effect waves-light btn orange white-text" %>
+<% content_for :body_class, "edit" %>
+<div class="grid">
+  <i class="large material-icons default-avatar" alt="edit">edit</i>
+  <div class="profile-content white bottom-attached">
+    <%= render 'form', company: @company %>
+    <%= link_to t('Cancelar'), root_path, class: "btn-flat grey white-text waves-effect waves-light" %>
+  </div>
+</div>
 
 
