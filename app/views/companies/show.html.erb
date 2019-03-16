@@ -2,19 +2,17 @@
 <p id="notice"><%= notice %></p>
 
 <div class="grid">
-
-
   <i class="large material-icons default-avatar">business</i>
   <div class="profile-content white bottom-attached">
 
     <div class="top section">
       <h4><b><%= @company.name.capitalize %></b></h4>
       <p class="grey-text"><b><%= @company.address %></b></p>
-        <p class="grey-text"><b><%= @company.email %></b></p>
-        <p class="grey-text"><b><i><%= @company.phone_number %></i></b></p>
-        <div class="center-align">
-          <%= link_to "Posiciones disponibles", company_posts_path(@company), class: "btn-flat blue lighten-1 white-text" %>
-        </div>
+      <p class="grey-text"><b><%= @company.email %></b></p>
+      <p class="grey-text"><b><i><%= @company.phone_number %></i></b></p>
+      <div class="center-align">
+        <%= link_to "Posiciones disponibles", company_posts_path(@company), class: "btn-flat blue lighten-1 white-text" %>
+      </div>
     </div>
 
     <div class="divider"></div>

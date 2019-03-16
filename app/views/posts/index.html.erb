@@ -1,9 +1,10 @@
+<% content_for :body_class, "all-posts-background" %>
 
-<% content_for :body_class, "posts-background" %>
-<p id="notice"><%= notice %></p>
 
-<h5>Posiciones</h5>
-
-<%= link_to 'New Post', new_company_post_path(@company) %>
-<%= render partial: 'posts', collection: @posts %>
+<% if @posts.empty? %>
+  <h5 class="white-text">No hay mas posiciones disponibles</h5>
+<% else %>
+  <h5 class="white-text">Todos los trabajos disponibles</h5>
+  <%= render partial: 'posts', object: @posts %>
+<% end %>
 

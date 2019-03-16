@@ -4,7 +4,8 @@
       <span class="new badge <%= post.job_type %>" data-badge-caption="<%= post.job_type %>"></span>
       <b><%= link_to post.title, company_post_path(post.company, post) %></b>
       <% if current_user == post.company %>
-        <td><%= link_to 'Edit', edit_company_post_path(post.company, post) %></td>
+        <td><%= link_to 'Editar', edit_company_post_path(post.company, post) %></td>
+        <td><%= link_to 'Borrar', @company, method: :delete,  data: { confirm: 'Confirma que quiere borrar esta posicion?' }, class: "red-text" %></td>
       <% end %>
       <p class="truncate"><%= post.description %></p>
       <div class="divider"></div>

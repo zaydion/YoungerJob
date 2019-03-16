@@ -40,3 +40,10 @@
   padding: 0 8px;
   font-size: 11px;
 }
+
+.business-center.default-avatar {
+  background: linear-gradient(to top, rgb(248,152,43), rgb(247,179,50));
+  border-radius: 50%;
+  padding: 8px;
+  border: 5px solid white;
+}

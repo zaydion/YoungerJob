@@ -1,33 +1,62 @@
-
+<% content_for :body_class, "users-background" %>
 <p id="notice"><%= notice %></p>
 
-<p><%= @post.company.name %></p>
+<div class="grid">
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
+  <i class="large material-icons default-avatar business-center" alt="business_center">business_center</i>
+  <div class="profile-content white bottom-attached">
 
-<div>
-  <% @post.tags.each do |tag| %>
-    <div class="chip">
-      <%= tag.name %>
+    <div class="top section">
+      <h4><b><%= @post.title.capitalize %></b></h4>
+      <p class="grey-text"><b><%= @post.job_type %></b></p>
+      <p class="grey-text">Publicado por: <b><i><%= link_to @post.company.name.capitalize, company_path(@post.company) %></i></b></p>
     </div>
-  <% end %>
+
+    <div class="divider"></div>
+    <div class="section left-align white black-text light-padding">
+      <div>
+        <label>Un poco sobre la posicion:</label>
+        <p>
+          <%= @post.description %>
+        </p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="section left-align light-padding">
+      <label>Categorias:</label>
+      <div class="chips-container">
+        <% @post.tags.each do |tag| %>
+          <div class="chip blue lighten-1 white-text">
+            <%= tag.name %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <% if logged_in_as_user? %>
+      <div class="divider"></div>
+      <div class="section left-align light-padding">
+        <label>Si te interesa la posicion, puedes contactar la compañia:</label>
+        <p class="center-align">
+          <%= link_to 'Me Interesa!', company_post_new_email_path(@post.company, @post), class: "btn green waves-effect waves-light" %>
+        </p>
+      </div>
+    <% end %>
+
+    <% if current_user == @post.company %>
+      <div class="divider"></div>
+      <div>
+        <p><%= link_to 'Editar Posicion', edit_company_post_path(@post.company, @post), class: "btn-flat orange lighten-1 white-text" %></p>
+      </div>
+    <% end %>
+
+    <%= link_to 'Atras', :back, class: "btn-flat lighten-1 grey white-text" %>
+
+  </div>
+
+
 </div>
 
 
-<div class="row">
-  <%= link_to 'Me Interesa!', company_post_new_email_path(@post.company, @post), class: :btn %>
-</div>
-
-<% if current_user == @post.company %>
-  <%= link_to 'Edit', edit_company_post_path(@post.company, @post) %> |
-  <%= link_to 'Destroy', [@post.company, @post], method: :delete, data: { confirm: 'Are you sure?' } %> | 
-<% end %>
-<%= link_to 'Back', company_posts_path(@post.company) %>

@@ -24,7 +24,7 @@
    width: 100%;
  }
 
-.users-background, .matches-background, .companies-background, .edit .row {
+.users-background .row, .matches-background .row, .companies-background .row, .edit .row {
   margin-bottom: 0;
   padding-bottom: 20px;
 }

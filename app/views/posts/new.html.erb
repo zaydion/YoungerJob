@@ -1,5 +1,9 @@
-<h1>New Post</h1>
+<%= content_for(:body_class, "edit") %>
+<div class="grid">
+  <i class="large material-icons default-avatar" alt="edit">edit</i>
+  <div class="profile-content white bottom-attached">
+    <%= render 'form', post: @post %>
+    <%= link_to 'Back', :back, class: "btn-flat grey white-text waves-effect waves-light" %>
+  </div>
+</div>
 
-<%= render 'form', post: @post %>
-
-<%= link_to 'Back', company_posts_path(@company) %>
