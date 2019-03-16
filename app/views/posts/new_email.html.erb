@@ -1,16 +1,21 @@
-<h1>Prep Email</h1>
-
-<% if @user.resume.attached? %>
-<div class="row">
-  <div class="field">
-    <%= link_to @user.resume.filename, rails_blob_path(@user.resume, disposition: 'attachment') %>
+<%= content_for(:body_class, "edit") %>
+<div class="grid">
+  <i class="large material-icons default-avatar" alt="mail_outline">mail_outline</i>
+  <div class="profile-content white bottom-attached">
+    <div class="section">
+      <% if @user.resume.attached? %>
+        <%= link_to @user.resume.filename, rails_blob_path(@user.resume, disposition: 'attachment') %>
+      <% end %>
+  
+      <%= form_tag(company_post_send_email_path(@post.company, @post), method: "post") do %>
+        <%= label_tag(:email, "Email") %>
+        <%= text_field_tag(:subject) %>
+        <%= text_area_tag(:body) %>
+          <button class="btn waves-effect waves-light lighten-1 blue white-text" type="submit" name="action">
+            <i class="material-icons right" style="margin-left:0;">send</i>
+            <%= submit_tag("Mandar Email") %>
+          </button>
+      <% end %>
+    </div>
   </div>
 </div>
-<% end %>
-
-<%= form_tag(company_post_send_email_path(@post.company, @post), method: "post") do %>
-  <%= label_tag(:email, "Email") %>
-  <%= text_field_tag(:subject) %>
-  <%= text_area_tag(:body) %>
-  <%= submit_tag("Mandar Email", class: "btn") %>
-<% end %>

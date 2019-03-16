@@ -10,7 +10,7 @@
     <div class="top section">
       <h4><b><%= @post.title.capitalize %></b></h4>
       <p class="grey-text"><b><%= @post.job_type %></b></p>
-      <p class="grey-text">Publicado por: <b><i><%= link_to @post.company.name.capitalize, company_path(@post.company) %></i></b></p>
+      <p class="grey-text"><i>Publicado por: <b><%= link_to @post.company.name.capitalize, company_path(@post.company) %></b></i></p>
     </div>
 
     <div class="divider"></div>
