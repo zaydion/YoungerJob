@@ -21,7 +21,7 @@ class User < ApplicationRecord
   has_one_attached :resume
 
   def full_name
-    "#{self.first_name} #{self.last_name}"
+    "#{self.first_name.capitalize} #{self.last_name.capitalize}"
   end
 
   def age

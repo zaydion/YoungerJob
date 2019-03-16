@@ -1,9 +1,39 @@
 .all-posts-background {
-  background: linear-gradient(rgb(41, 128, 185), rgb(109, 213, 250), rgb(255, 255, 255));
+  min-height: 100%;
+  height: initial;
+  background: linear-gradient(to top, rgb(252, 74, 26), rgb(247, 183, 51));
 }
 
-.posts-background {
-  background: linear-gradient(to top, rgb(58, 28, 113), rgb(215, 109, 119), rgb(255, 175, 123));
+.all-posts-background .row {
+  margin-bottom: 0;
+  padding-bottom: 20px;
+}
+
+.posts-background.container {
+  min-height: 100%;
+  height: initial;
+  background: linear-gradient(to top, rgb(252, 74, 26), rgb(247, 183, 51));
+}
+
+.posts-background .row {
+  margin-bottom: 0;
+  padding-bottom: 20px;
+}
+
+.badge.full.time {
+ /* let the default handle full time */
+}
+
+.badge.part.time {
+  background-color: #5e35b1 !important;
+}
+
+.badge.trabajo.de.verano {
+  background-color: #ff9800 !important;
+}
+
+.badge.pasantia {
+  background-color: #4CAF50 !important;
 }
 
 .chip {

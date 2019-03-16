@@ -1,90 +1,96 @@
 
-<%= form_with(model: @user, local: true) do |form| %>
-  <% if @user.errors.any? %>
-    <div>
-      <b>
-        <%= pluralize(@user.errors.count, "error", "errores") %> <%= (@user.errors.count && @user.errors.count > 1 ? "prohibieron" : "prohibio") %> crear el usuario:
-      </b>
-      <ul class="browser-default left-align">
-        <% @user.errors.messages.each do |key, messages| %>
-          <% messages.each do |message| %>
-            <li class="red-text"><%= message %></li>
+<div class="profile-content white">
+  <%= form_with(model: @user, local: true, class: "edit-user form") do |form| %>
+    <% if @user.errors.any? %>
+      <div>
+        <b>
+          <%= pluralize(@user.errors.count, "error", "errores") %> <%= (@user.errors.count && @user.errors.count > 1 ? "prohibieron" : "prohibio") %> crear el usuario:
+        </b>
+        <ul class="browser-default left-align">
+          <% @user.errors.messages.each do |key, messages| %>
+            <% messages.each do |message| %>
+              <li class="red-text"><%= message %></li>
+            <% end %>
           <% end %>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="row">
-    <div class="file-field field">
-      <div class="btn">
-        <span>Foto</span>
-        <%= form.file_field :avatar %>
+        </ul>
       </div>
-      <div class="file-path-wrapper">
-        <input class="file-path validate" type="text" placeholder="Sube una foto de perfil">
+    <% end %>
+    <div class="row">
+      <div class="input-field col s6">
+        <div class="file-field field">
+          <div>
+            <i class="large material-icons teal-text lighten-2">add_a_photo</i>
+            <%= form.file_field :avatar, hint: image_tag(form.object.avatar, size: "200x200", class: "circle user-avatar") %>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Sube una foto">
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="file-field field">
-      <div class="btn blue">
-        <span>Currículum</span>
-        <%= form.file_field :resume %>
+        <div class="input-field col s6">
+          <div class="file-field field">
+            <div>
+              <i class="large material-icons blue-text lighten-1">attach_file</i>
+              <%= form.file_field :resume %>
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text" placeholder="Sube currículum">
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="file-path-wrapper">
-        <input class="file-path validate" type="text" placeholder="Sube currículum">
-      </div>
-    </div>
-    <div class="field">
+    <div class="field left-align">
       <%= form.label :nombre %>
       <%= form.text_field :first_name, placeholder: :jean %>
     </div>
-    <div class="field">
+    <div class="field left-align">
       <%= form.label :apellido %>
       <%= form.text_field :last_name, placeholder: :duarte %>
     </div>
-    <div class="field">
+    <div class="field left-align">
       <%= form.label :email %>
       <%= form.email_field :email, placeholder: "ejemplo@email.com" %>
     </div>
-    <div class="field">
+    <div class="field left-align">
       <%= form.label :numero_telefonico %>
       <%= form.telephone_field :phone_number, placeholder: "8095557733" %>
     </div>
-    <div class="field">
+    <div class="field left-align">
       <%= form.label :fecha_de_nacimiento %>
       <%= form.date_field :dob %>
     </div>
-    <div class="field">
+    <div class="field left-align">
       <%= form.label :escribi_un_poco_sobre_ti %>
       <%= form.text_area :description, size: '100x500', class: "materialize-textarea", placeholder: "Las fortalezas centrales y los conjuntos de habilidades más relevantes para el rol
       Experiencia relevante pasada con funciones clave.
       Logros notables que pretende repetir en el próximo rol" %>
     </div>
-    <div class="field">
+    <div class="field left-align">
       <%= form.label :contraseña %>
       <%= form.password_field :password, placeholder: :password %>
     </div>
-    <div class="field">
+    <div class="field left-align">
       <%= form.label :confirmar_contraseña %>
       <%= form.password_field :password_confirmation, placeholder: :password %>
     </div>
-  </div>
-  <div class="row left-align">
-    <div class="field">
-      <strong>Intereses:</strong><br />
-      <div class="row">
-        <% @tags.each do |tag| %>
-          <div class="col s6">
-            <label>
-              <%= form.check_box :tag_ids, { id: "#{tag.name}", class: "filled-in", checked: @user.tags.include?(tag), multiple: true, value: tag.id }, tag.id.to_s, false %>
-              <span><%= tag.name %></span>
-            </label>
-          </div>
-        <% end %>
+    <div class=" left-align">
+      <div class="field left-align">
+        <strong>Intereses:</strong><br />
+        <div class="">
+          <% @tags.each do |tag| %>
+            <div class="col s6">
+              <label>
+                <%= form.check_box :tag_ids, { id: "#{tag.name.split(' ').join("-")}", class: "filled-in", checked: @user.tags.include?(tag), multiple: true, value: tag.id }, tag.id.to_s, false %>
+                <span><%= tag.name %></span>
+              </label>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-  <%= form.submit "Actualizar usuario", class: "waves-effect waves-light btn green white-text" %>
-<% end %>
-<br />
-<%= link_to t('Atras'), :back, class: "waves-effect waves-light btn orange white-text" %>
+    <%= form.submit "Actualizar usuario", class: "waves-effect waves-light btn green white-text" %>
+  <% end %>
+  <%= link_to t('Atras'), :back, class: "waves-effect waves-light btn orange white-text" %>
+</div>
+
 

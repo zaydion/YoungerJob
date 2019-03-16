@@ -2,55 +2,54 @@
 
 <p id="notice"><%= notice %></p>
 
-<% if current_user == @user %>
-  <h5><%= @user.email %> logged in</h5>
-<% end %>
-
-<div>
+<div class="grid">
   <% if @user.avatar.attached? %>
-    <%= image_tag @user.avatar, size: "100x100", class: "circle" %>
+    <%= image_tag @user.avatar, size: "200x200", class: "circle user-avatar" %>
   <% else %>
-    <i class="large material-icons">account_circle</i>
+    <i class="large material-icons default-avatar">account_circle</i>
   <% end %>
-</div>
 
-<div>
-  <%= link_to "Mis trabajos ideales", user_matches_path(@user), class: "btn green" %>
-</div>
-
-<div>
-  <div class="row">
-    <div class="field">
-        edad: <%= @user.age %>
-    </div>
-  </div>
-  <% if @user.resume.attached? %>
-    <div class="row">
-      <div class="field">
-        <%= link_to @user.resume.filename, rails_blob_path(@user.resume, disposition: 'attachment') %>
+  <div class="profile-content white">
+    <div class="top section">
+      <h4><b><%= @user.full_name %></b></h4>
+      <h5 class="grey-text"><b><i><%= @user.age %> años</i></b></h5>
+      <p class="grey-text"><b><%= @user.email %></b></p>
+      <div class="center-align">
+        <% if (current_user == @user || logged_in_as_company?) && @user.resume.attached? %>
+          <i class="tiny material-icons">file_download</i> 
+          <%= link_to @user.resume.filename, rails_blob_path(@user.resume, disposition: 'attachment') %>
+        <% end %>
       </div>
     </div>
-  <% end %>
-  <div class="row">
-    <div class="field">
-      <input placeholder="Nombre" id="first_name" type="text" value="<%= @user.first_name %>">
+    
+    <div class="divider"></div>
+    <div class="section left-align white black-text light-padding">
+      <div>
+        <label>Un poco sobre mi:</label>
+        <p>
+          <%= @user.description %>
+        </p>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="field">
-      <input placeholder="Apellido" id="last_name" type="text" value="<%= @user.last_name %>">
+  
+    <div class="divider"></div>
+    <div class="section left-align light-padding">
+      <label>Carreras que me interesan:</label>
+      <div class="chips-container">
+        <% @user.tags.each do |tag| %>
+          <div class="chip blue lighten-1 white-text">
+            <%= tag.name %>
+          </div>
+        <% end %>
+        </div>
     </div>
+  
+    <% if current_user == @user %>
+      <div class="divider"></div>
+      <div>
+        <p><%= link_to "Ver mis trabajos ideales", user_matches_path(@user), class: "btn-flat orange lighten-1 white-text" %></p>
+        <p><%= link_to 'Editar usuario', edit_user_path(@user), class: "btn-flat orange lighten-3 white-text" %></p>
+      </div>
+    <% end %>
   </div>
-  <div class="row">
-    <div class="field">
-      <input placeholder="email" id="email" type="email" value="<%= @user.email %>">
-    </div>
-  </div>
-  <blockquote class="left-align">
-    <%= @user.description %>
-  </blockquote>
 </div>
-
-<% if current_user == @user %>
-<%= link_to 'Editar usuario', edit_user_path(@user), class: :btn %>
-<% end %>

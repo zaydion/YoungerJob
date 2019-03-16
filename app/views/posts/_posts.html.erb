@@ -1,8 +1,7 @@
-
 <div class="collection left-align">
   <% @posts.each do |post| %>
     <div class="collection-item">
-      <span class="new badge" data-badge-caption="<%= post.job_type %>"></span>
+      <span class="new badge <%= post.job_type %>" data-badge-caption="<%= post.job_type %>"></span>
       <b><%= link_to post.title, company_post_path(post.company, post) %></b>
       <% if current_user == post.company %>
         <td><%= link_to 'Edit', edit_company_post_path(post.company, post) %></td>
@@ -11,7 +10,7 @@
       <div class="divider"></div>
       <p>
         <% post.tags.each do |tag| %>
-          <div class="chip">
+          <div class="chip blue lighten-1 white-text">
             <%= tag.name %>
           </div>
         <% end %>
@@ -19,4 +18,3 @@
     </div>
   <% end %>
 </div>
-        

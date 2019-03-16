@@ -2,9 +2,9 @@
 
 
 <% if @posts.empty? %>
-  <h5>No hay posiciones disponibles</h5>
+  <h5 class="white-text">No hay posiciones disponibles</h5>
 <% else %>
-  <h5>Trabajos Ideales</h5>
+  <h5 class="white-text">Trabajos Ideales</h5>
   <%= render partial: 'posts/posts', object: @posts %>
 <% end %>
 

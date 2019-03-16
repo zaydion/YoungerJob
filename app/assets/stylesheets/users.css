@@ -2,6 +2,53 @@
   background: linear-gradient(to top, rgb(252, 74, 26), rgb(247, 183, 51));
 }
 
+.users-background.container {
+  min-height: 100%;
+  height: initial;
+}
+
+.users-background .row {
+  margin-bottom: 0;
+  padding-bottom: 20px;
+}
+
 .matches-background {
-  background: linear-gradient(rgb(255, 65, 108), rgb(255, 75, 43));
+  background: linear-gradient(to top, rgb(252, 74, 26), rgb(247, 183, 51));
+}
+
+.users-background .flat-btn  {
+  border-radius: 4px;
+}
+
+
+.user-avatar.circle {
+ background: linear-gradient(to top, rgb(248,152,43), rgb(247,179,50));
+ padding: 5px;
+ margin-bottom: -95px;
+}
+
+.profile-content {
+  padding-bottom: 20px;
+  border-radius: 10px;
+}
+
+.profile-content .top.section {
+  padding-top: 7rem;
+}
+
+.profile-content .light-padding {
+  padding: 10px;
+}
+
+.profile-content .chips-container {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+
+/* Edit User Form */
+
+.edit-user.form {
+  padding: 10px;
+  margin-top: 20px;
 }

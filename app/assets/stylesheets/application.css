@@ -31,3 +31,31 @@
  .align-icon-with-text {
    display: inline-flex;
  }
+
+ .collection {
+   border: none;
+ }
+
+ .collection .collection-item {
+   margin-bottom: 5px;
+   border-radius: 10px;
+ }
+ 
+ input#administracion-de-empresas.checkbox::before {
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  border-right: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+}
+
+input[type="checkbox"].filled-in:checked+span:not(.lever)::after {
+  border: 2px solid #42A5F5;
+  background-color: #42A5F5;
+}
+
+input[type="checkbox"].filled-in:checked+span:not(.lever)::before {
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  border-right: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+}
