@@ -2,18 +2,23 @@
   background: linear-gradient(to top, rgb(252, 74, 26), rgb(247, 183, 51));
 }
 
+.matches-background {
+  background: linear-gradient(to top, rgb(252, 74, 26), rgb(247, 183, 51));
+}
+
+.matches-background.container {
+  min-height: 100%;
+  height: initial;
+}
+
 .users-background.container {
   min-height: 100%;
   height: initial;
 }
 
-.users-background .row {
+.users-background, .matches-background .row {
   margin-bottom: 0;
   padding-bottom: 20px;
-}
-
-.matches-background {
-  background: linear-gradient(to top, rgb(252, 74, 26), rgb(247, 183, 51));
 }
 
 .users-background .flat-btn  {
