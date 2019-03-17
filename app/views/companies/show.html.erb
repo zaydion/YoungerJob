@@ -1,5 +1,12 @@
 <% content_for :body_class, "companies-background" %>
-<p id="notice"><%= notice %></p>
+
+<% if notice %>
+<div class="z-depth-1 card green lighten-5">
+  <div class="card-content green-text left-align" style="border:1px solid green;">
+    <p id="notice"><%= notice %></p>
+  </div>
+</div>
+<% end %>
 
 <div class="grid">
   <i class="large material-icons default-avatar white-text">business</i>

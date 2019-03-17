@@ -20,6 +20,9 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_one_attached :resume
 
+  validate :correct_document_mime_type
+  validate :correct_avatar_type
+
   def full_name
     "#{self.first_name.capitalize} #{self.last_name.capitalize}"
   end
@@ -39,6 +42,19 @@ class User < ApplicationRecord
   def matches
     allowed_posts_by_job_type.select do |post| 
       (post.tag_ids & self.tag_ids).any?
+    end
+  end
+
+  private
+  def correct_document_mime_type
+    if resume.attached? && !resume.content_type.in?(%w(application/pdf application/zip application/vnd.openxmlformats-officedocument.wordprocessingml.document))
+      errors.add(:resume, 'Curriculum debe de ser un pdf o un archivo doc')
+    end
+  end
+
+  def correct_avatar_type
+    if avatar.attached? && !avatar.content_type.in?(%w(jpg jpeg gif png))
+      errors.add(:avatar, 'Foto invalido')
     end
   end
 end

@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         log_in_user @user
-        format.html { redirect_to user_matches_path @user, notice: 'user was successfully created.' }
+        format.html { redirect_to user_matches_path @user, notice: 'Usuario fue creado exitosamente' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'Usuario fue actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   def delete
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Usuario fue destruido exitosamente' }
       format.json { head :no_content }
     end
   end

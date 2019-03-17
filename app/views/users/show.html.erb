@@ -1,10 +1,16 @@
 <% content_for :body_class, "users-background" %>
 
-<p id="notice"><%= notice %></p>
+<% if notice %>
+<div class="z-depth-1 card green lighten-5">
+  <div class="card-content green-text left-align" style="border:1px solid green;">
+    <p id="notice"><%= notice %></p>
+  </div>
+</div>
+<% end %>
 
 <div class="grid">
   <% if @user.avatar.attached? %>
-    <%= image_tag @user.avatar, size: "200x200", class: "circle user-avatar" %>
+    <%= image_tag @user.avatar.variant(resize: '200x200'), size: "200x200", class: "circle user-avatar" %>
   <% else %>
     <i class="large material-icons default-avatar white-text">account_circle</i>
   <% end %>

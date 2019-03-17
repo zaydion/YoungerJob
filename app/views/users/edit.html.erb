@@ -22,7 +22,7 @@
         <div class="file-field field">
           <div>
             <i class="large material-icons teal-text lighten-2">add_a_photo</i>
-            <%= form.file_field :avatar %>
+            <%= form.file_field :avatar, accept:'image/*' %>
           </div>
           <div class="file-path-wrapper">
             <input class="file-path validate" type="text" placeholder="Sube una foto">
@@ -33,7 +33,7 @@
           <div class="file-field field">
             <div>
               <i class="large material-icons blue-text lighten-1">attach_file</i>
-              <%= form.file_field :resume %>
+              <%= form.file_field :resume, accept: 'application/pdf, application/zip,application/vnd.openxmlformats-officedocument.wordprocessingml.document' %>
             </div>
             <div class="file-path-wrapper">
               <input class="file-path validate" type="text" placeholder="Sube currículum">
@@ -63,7 +63,7 @@
     </div>
     <div class="field left-align">
       <%= form.label :escribi_un_poco_sobre_ti %>
-      <i class="tiny material-icons tooltipped" data-position="top" data-tooltip="<h6>Sugerencias:</h6><ul class='left-align browser-default'><li>Habilidades</li><li>Areas ocupacionales</li></ul><br/><ol class='left-align'><li>Puedo trabajar bajo presión</li><li>Se me da bien resolver problemas de una manera rápida y eficaz</li><li>Me considero una persona creativa e innovadora</li><li>Soy una persona bastante despistada</li><li>Me exijo constantemente efectividad y buenos resultados en mis estudios</li><li>Puedo trabajar en equipo</li><li>Me gusta escuchar a los demás y comprender sus sentimientos</li><li>Tengo facilidad para pensar y razonar de forma lógica</li></ol>">help_outline</i> <%= form.text_area :description, size: '100x500', class: "materialize-textarea", placeholder: "Las fortalezas centrales y los conjuntos de habilidades más relevantes para el rol
+      <i class="material-icons tooltipped" data-position="top" data-tooltip="<h6>Sugerencias:</h6><ul class='left-align browser-default'><li>Habilidades</li><li>Areas ocupacionales</li></ul><br/><ol class='left-align'><li>Puedo trabajar bajo presión</li><li>Se me da bien resolver problemas de una manera rápida y eficaz</li><li>Me considero una persona creativa e innovadora</li><li>Soy una persona bastante despistada</li><li>Me exijo constantemente efectividad y buenos resultados en mis estudios</li><li>Puedo trabajar en equipo</li><li>Me gusta escuchar a los demás y comprender sus sentimientos</li><li>Tengo facilidad para pensar y razonar de forma lógica</li></ol>">help_outline</i> <%= form.text_area :description, size: '100x500', class: "materialize-textarea", placeholder: "Las fortalezas centrales y los conjuntos de habilidades más relevantes para el rol
       Experiencia relevante pasada con funciones clave.
       Logros notables que pretende repetir en el próximo rol" %>
     </div>
