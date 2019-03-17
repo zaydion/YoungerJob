@@ -15,3 +15,7 @@
 //     minDate: eighteenYearsAgo,
 //   });
 // });
+
+$(document).on("turbolinks:load", function(){
+  $('.tooltipped').tooltip();
+});

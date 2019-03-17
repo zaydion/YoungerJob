@@ -1,12 +1,17 @@
-<h1>Younger Job</h1>
-
-
-<div class="row">
-  <%= link_to t('Iniciar Sesion'), user_login_path, class: "waves-effect waves-light btn" %>
-</div> 
-
-
+<% content_for :body_class, "users-background" %>
+<div class="grid login">
+  <div class="profile-content white">
+    <div>
+      <%= image_tag('yg_logo.jpg', size: "200x200") %>
+    </div>
+    <div class="section">
+      <%= link_to t('Iniciar Sesion'), user_login_path, class: "waves-effect waves-light lighten-1 blue btn" %>
+      <p><b>No tiene cuenta?</b></p> 
+      <%= link_to t('Crear Usuario'), new_user_path, class: "waves-effect waves-light lighten-2 orange btn" %>
+    </div>     
+  </div>
+</div>
 <div>
-  <p>Compañia? <%= link_to t('Portal de la Empresa'), company_login_path %></p>
+  <p class="white-text">Compañia? <b><%= link_to t('Portal de la Empresa'), company_login_path, class: "white-text underline" %></b></p>
 </div> 
 

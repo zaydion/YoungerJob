@@ -88,7 +88,8 @@ class PostsController < ApplicationController
       body: params[:body],
     ).interested_email.deliver_now
 
-    redirect_to [@company, @post]
+
+    redirect_to [@company, @post], notice: 'Tu correo electrónico fue enviado con éxito'
   end
 
   # DELETE /posts/1

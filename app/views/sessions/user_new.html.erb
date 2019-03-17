@@ -1,5 +1,10 @@
-<%= render 'form', url: user_login_path, user_type: "user" %>
-<br/>
-<%= link_to t('Atras'), :root, class: "waves-effect waves-light btn orange white-text" %>
-<br/>
-<p>no tiene cuenta? <%= link_to 'Crear Usuario', new_user_path %></p>
+<% content_for :body_class, "users-background" %>
+
+<div class="grid login">
+  <h5 class="white-text">Iniciar sesion</h5>
+  <div class="profile-content white">
+    <%= render 'form', url: user_login_path, user_type: "user" %>
+
+    <%= link_to t('Atras'), :root, class: "waves-effect waves-light btn lighten-2 orange white-text" %>
+  </div>
+</div>

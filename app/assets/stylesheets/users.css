@@ -49,6 +49,11 @@
   padding-right: 20px;
 }
 
+.profile-content .top.section.email {
+  padding-top: 3rem;
+}
+
+
 .profile-content .light-padding {
   padding: 10px;
 }

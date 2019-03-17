@@ -1,20 +1,25 @@
 <%= content_for(:body_class, "edit") %>
 <div class="grid">
-  <i class="large material-icons default-avatar" alt="mail_outline">mail_outline</i>
+  <i class="large material-icons default-avatar white-text" alt="mail_outline">mail_outline</i>
   <div class="profile-content white bottom-attached">
-    <div class="section">
+    <div class="top section email">
       <% if @user.resume.attached? %>
-        <%= link_to @user.resume.filename, rails_blob_path(@user.resume, disposition: 'attachment') %>
+        <h6 class="lighten-1 blue-text"><b>Su currículum se adjuntará automáticamente al correo electrónico.</b></h6>
       <% end %>
+    </div>
   
+    <div class="section left-align">
       <%= form_tag(company_post_send_email_path(@post.company, @post), method: "post") do %>
-        <%= label_tag(:email, "Email") %>
-        <%= text_field_tag(:subject) %>
-        <%= text_area_tag(:body) %>
+        <%= label_tag(:subject, "Subjeto") %>
+        <%= text_field_tag(:subject, "", class: "field", required: true) %><br />
+        <%= label_tag(:cuerpo, "Cuerpo") %>
+        <%= text_area_tag(:body, "", class: "materialize-textarea", required: true) %>
+        <div class="center-align">
           <button class="btn waves-effect waves-light lighten-1 blue white-text" type="submit" name="action">
             <i class="material-icons right" style="margin-left:0;">send</i>
-            <%= submit_tag("Mandar Email") %>
+            <%= submit_tag("Enviar", class: "white-text") %>
           </button>
+        </div>
       <% end %>
     </div>
   </div>

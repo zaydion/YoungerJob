@@ -24,6 +24,7 @@
    width: 100%;
  }
 
+
 .users-background .row, .matches-background .row, .companies-background .row, .edit .row {
   margin-bottom: 0;
   padding-bottom: 20px;
@@ -67,5 +68,5 @@ input[type="checkbox"].filled-in:checked+span:not(.lever)::before {
 }
 
 .edit {
-  background-color: #f6f6f6;
+  background-color: #42A5F5;
 }

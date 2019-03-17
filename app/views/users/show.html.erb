@@ -6,7 +6,7 @@
   <% if @user.avatar.attached? %>
     <%= image_tag @user.avatar, size: "200x200", class: "circle user-avatar" %>
   <% else %>
-    <i class="large material-icons default-avatar">account_circle</i>
+    <i class="large material-icons default-avatar white-text">account_circle</i>
   <% end %>
 
   <div class="profile-content white <%= !@user.avatar.attached? ? 'bottom-attached' : '' %>">
