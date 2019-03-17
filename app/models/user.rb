@@ -47,7 +47,7 @@ class User < ApplicationRecord
 
   private
   def correct_document_mime_type
-    if @user.resume.attached? && !@user.resume.content_type.in?(%w(application/pdf application/zip application/vnd.openxmlformats-officedocument.wordprocessingml.document))
+    if resume.attached? && !resume.content_type.in?(%w(application/pdf application/zip application/vnd.openxmlformats-officedocument.wordprocessingml.document))
       errors.add(:resume, 'Curriculum debe de ser un pdf o un archivo doc')
     end
   end
