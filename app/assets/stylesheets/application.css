@@ -67,6 +67,10 @@ input[type="checkbox"].filled-in:checked+span:not(.lever)::before {
   border-bottom: 3px solid #fff;
 }
 
+.grid {
+  margin-top: 20px;
+}
+
 .edit {
   background-color: #42A5F5;
 }
