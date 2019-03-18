@@ -6,7 +6,6 @@ class PostsController < ApplicationController
       @posts = Post
                 .includes(:company)
                 .where(id: current_user.allowed_posts_by_job_type)
-                .where.not(id: current_user.matches)
     elsif logged_in_as_company?
       @posts = current_user.posts
     end

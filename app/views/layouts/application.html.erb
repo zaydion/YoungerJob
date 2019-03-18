@@ -50,17 +50,19 @@
                   <i class="material-icons blue-text darken-4" alt="list">list</i>
                 <% end %>
               </li>
+              <% end %>
               <li>
-                <%= link_to logout_path, class: "black-text align-icon-with-text" do %>
-                  Salir <i class="material-icons" alt="exit">exit_to_app</i>
+                <%= link_to about_us_path, class: "darken-1 orange-text" do %>
+                  <i class="material-icons" alt="about us">face</i>
                 <% end %>
               </li>
-            <% end %>
-            <li>
-              <%= link_to about_us_path, class: "darken-1 orange-text" do %>
-                <i class="material-icons" alt="about us">face</i>
+              <% if logged_in? %>
+                <li>
+                  <%= link_to logout_path, class: "black-text align-icon-with-text" do %>
+                    Salir <i class="material-icons" alt="exit">exit_to_app</i>
+                  <% end %>
+                </li>
               <% end %>
-            </li>
           </ul>
         </div>
       </nav>

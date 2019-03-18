@@ -2,7 +2,12 @@
   <% @posts.each do |post| %>
     <div class="collection-item">
       <span class="new badge <%= post.job_type %>" data-badge-caption="<%= post.job_type %>"></span>
-      <b><%= link_to post.title, company_post_path(post.company, post) %></b>
+      <span class="align-icon-with-text">
+        <b><%= link_to post.title, company_post_path(post.company, post) %></b>
+        <% if logged_in_as_user? && current_user.matches.include?(post) %>
+          <i class="tiny material-icons yellow-text" alt="star">star</i>
+        <% end %>
+      </span>
       <% if current_user == post.company %>
         <td><%= link_to 'Editar', edit_company_post_path(post.company, post) %></td>
         <td><%= link_to 'Borrar', @company, method: :delete,  data: { confirm: 'Confirma que quiere borrar esta posición?' }, class: "red-text" %></td>
