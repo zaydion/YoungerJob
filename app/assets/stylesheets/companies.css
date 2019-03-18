@@ -20,3 +20,9 @@
 .company.form {
   margin-top: 20px;
 }
+
+.company-avatar.circle {
+  background: linear-gradient(to top, rgb(134,227,234), rgb(142,232,229));
+  padding: 5px;
+  margin-bottom: -95px;
+ }

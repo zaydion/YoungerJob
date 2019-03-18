@@ -10,7 +10,20 @@
       </ul>
     </div>
   <% end %>
-  <div class="row">
+  <div class="row section">
+    <div class="file-field field center-align">
+      <div>
+        <% if company.avatar.attached? %>
+          <%= image_tag @company.avatar.variant(resize: '100x100'), size: "100x100", class: "circle" %>
+        <% else %>
+          <i class="large material-icons teal-text lighten-2">add_a_photo</i>
+        <% end %>
+        <%= form.file_field :avatar, accept:'image/*' %>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text" placeholder="<%= company.avatar.attached? ? 'Cambiar logo' : 'Inserta un logo' %>">
+      </div>
+    </div>
     <div class="field">
       <%= form.label :nombre %>
       <%= form.text_field :name %>

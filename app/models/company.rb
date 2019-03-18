@@ -5,4 +5,6 @@ class Company < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "El email introducido debe ser un email válido" },
                     uniqueness: { case_sensitive: false }
   has_secure_password
+
+  has_one_attached :avatar
 end

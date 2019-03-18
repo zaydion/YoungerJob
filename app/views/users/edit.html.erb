@@ -21,22 +21,31 @@
       <div class="input-field col s6">
         <div class="file-field field">
           <div>
-            <i class="large material-icons teal-text lighten-2">add_a_photo</i>
+            <% if @user.avatar.attached? %>
+              <%= image_tag @user.avatar.variant(resize: '100x100'), size: "100x100", class: "circle" %>
+            <% else %>
+              <i class="large material-icons teal-text lighten-2">add_a_photo</i>
+            <% end %>
             <%= form.file_field :avatar, accept:'image/*' %>
           </div>
           <div class="file-path-wrapper">
-            <input class="file-path validate" type="text" placeholder="Inserta una foto">
+            <input class="file-path validate" type="text" placeholder="<%= @user.avatar.attached? ? 'Cambiar foto' : 'Inserta un foto' %>">
           </div>
         </div>
       </div>
       <div class="input-field col s6">
         <div class="file-field field">
           <div>
-            <i class="large material-icons blue-text lighten-1">attach_file</i>
+            <% if @user.resume.attached? %>            
+              <i class="large material-icons darken-2 green-text">insert_drive_file</i>
+              <span class="truncate"><%= @user.resume.filename %></span>
+            <% else %>
+              <i class="large material-icons grey-text lighten-1">attach_file</i>
+            <% end %>
             <%= form.file_field :resume, accept: 'application/pdf, application/zip,application/vnd.openxmlformats-officedocument.wordprocessingml.document' %>
           </div>
           <div class="file-path-wrapper">
-            <input class="file-path validate" type="text" placeholder="Inserta tu currículum">
+            <input class="file-path validate" type="text" placeholder="<%= @user.resume.attached? ? 'Cambiar currículum' : 'Inserta tu currículum' %>">
           </div>
         </div>
       </div>

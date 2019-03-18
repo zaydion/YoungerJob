@@ -9,9 +9,13 @@
 <% end %>
 
 <div class="grid">
-  <i class="large material-icons default-avatar white-text">business</i>
-  <div class="profile-content white bottom-attached">
+  <% if @company.avatar.attached? %>
+    <%= image_tag @company.avatar.variant(resize: '200x200'), size: "200x200", class: "circle company-avatar" %>
+  <% else %>
+    <i class="large material-icons default-avatar white-text">business</i>
+  <% end %>
 
+  <div class="profile-content white <%= !@company.avatar.attached? ? 'bottom-attached' : '' %>">
     <div class="top section">
       <h4><b><%= @company.name.capitalize %></b></h4>
       <p class="grey-text"><b><%= @company.address %></b></p>
