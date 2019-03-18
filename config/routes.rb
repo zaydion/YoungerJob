@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'static#welcome'
-
+  get '/about_us', to: 'static#about'
   get '/user_login', to: 'sessions#user_new'
   post '/user_login', to: 'sessions#create'
   get '/company_login', to: 'sessions#company_new'
