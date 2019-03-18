@@ -1,7 +1,9 @@
 <%= content_for(:body_class, "edit") %>
 <div class="grid">
-  <i class="large material-icons white-text default-avatar" alt="edit">edit</i>
-  <div class="profile-content white bottom-attached">
+  <% if !@company.avatar.attached? %> 
+    <i class="large material-icons white-text default-avatar" alt="edit">edit</i>
+  <% end %>
+  <div class="profile-content white <%= !@company.avatar.attached? && 'bottom-attached' %>">
     <%= render 'form', company: @company %>
 
     <%= link_to 'Cancelar', @company, class: "btn-flat lighten-1 grey white-text" %>
