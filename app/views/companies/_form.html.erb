@@ -11,7 +11,7 @@
     </div>
   <% end %>
   <div class="row section">
-    <div class="file-field field center-align">
+    <div class="file-field field">
       <div>
         <% if company.avatar.attached? %>
           <%= image_tag @company.avatar.variant(resize: '100x100'), size: "100x100", class: "circle" %>
@@ -46,7 +46,7 @@
 
     <div class="field">
       <%= form.label :descripción %>
-      <%= form.text_area :description %>
+      <%= form.text_area :description, class: "materialize-textarea" %>
     </div>
     <div class="field">
       <%= form.label :contraseña %>
