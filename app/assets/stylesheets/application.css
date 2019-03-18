@@ -67,6 +67,10 @@ input[type="checkbox"].filled-in:checked+span:not(.lever)::before {
   border-bottom: 3px solid #fff;
 }
 
+textarea.materialize-textarea {
+  min-height: 8rem;
+}
+
 .grid {
   margin-top: 20px;
 }

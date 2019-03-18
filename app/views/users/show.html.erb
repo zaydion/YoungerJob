@@ -32,6 +32,25 @@
     <div class="section left-align white black-text light-padding">
       <div>
         <label>Un poco sobre mi:</label>
+        <% if current_user == @user && @user.description.nil? %>
+          <blockquote class="lighten-3 grey-text user-description">
+            <b>Esta parte sera visible por compañías que visiten tu perfil. Aqui tienes algunas sugerencias de que escribir:</b>
+            <ul class="left-align browser-default">
+              <li>Habilidades</li>
+              <li>Areas ocupacionales</li>
+            </ul>
+            <ol class="left-align">
+              <li>Puedo trabajar bajo presión</li>
+              <li>Se me da bien resolver problemas de una manera rápida y eficaz</li>
+              <li>Me considero una persona creativa e innovadora</li>
+              <li>Soy una persona bastante despistada</li>
+              <li>Me exijo constantemente efectividad y buenos resultados en mis estudios</li>
+              <li>Puedo trabajar en equipo</li>
+              <li>Me gusta escuchar a los demás y comprender sus sentimientos</li>
+              <li>Tengo facilidad para pensar y razonar de forma lógica</li>
+            </ol>
+          </blockquote>
+        <% end %>
         <p>
           <%= @user.description %>
         </p>

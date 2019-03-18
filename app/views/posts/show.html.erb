@@ -23,7 +23,7 @@
     <div class="divider"></div>
     <div class="section left-align white black-text light-padding">
       <div>
-        <label>Un poco sobre la posicion:</label>
+        <label>Un poco sobre la posición:</label>
         <p>
           <%= @post.description %>
         </p>
@@ -32,7 +32,7 @@
 
     <div class="divider"></div>
     <div class="section left-align light-padding">
-      <label>Categorias:</label>
+      <label>Categorías:</label>
       <div class="chips-container">
         <% @post.tags.each do |tag| %>
           <div class="chip blue lighten-1 white-text">
@@ -45,7 +45,7 @@
     <% if logged_in_as_user? %>
       <div class="divider"></div>
       <div class="section left-align light-padding">
-        <label>Si te interesa la posicion, puedes contactar la compañia:</label>
+        <label>Si te interesa la posición, puedes contactar la compañía:</label>
         <p class="center-align">
           <%= link_to 'Me Interesa!', company_post_new_email_path(@post.company, @post), class: "btn green waves-effect waves-light" %>
         </p>
@@ -55,11 +55,11 @@
     <% if current_user == @post.company %>
       <div class="divider"></div>
       <div>
-        <p><%= link_to 'Editar Posicion', edit_company_post_path(@post.company, @post), class: "btn-flat orange lighten-1 white-text" %></p>
+        <p><%= link_to 'Editar Posición', edit_company_post_path(@post.company, @post), class: "btn-flat orange lighten-1 white-text" %></p>
       </div>
     <% end %>
 
-    <%= link_to 'Atras', :back, class: "btn-flat lighten-1 grey white-text" %>
+    <%= link_to 'Atrás', :back, class: "btn-flat lighten-1 grey white-text" %>
 
   </div>
 

@@ -24,7 +24,8 @@ class User < ApplicationRecord
   # validate :correct_avatar_type
 
   def full_name
-    "#{self.first_name.capitalize} #{self.last_name.capitalize}"
+    name = "#{self.first_name && self.first_name.capitalize} #{self.last_name && self.last_name.capitalize}"
+    name.gsub(" ", "").empty? ? "Nombre Apellido" : name
   end
 
   def age
@@ -53,7 +54,7 @@ class User < ApplicationRecord
   end
 
   # def correct_avatar_type
-  #   if @user.avatar.attached? && !@user.avatar.content_type.in?(%w(jpg jpeg gif png))
+  #   if avatar.attached? && !avatar.content_type.in?(%w(jpg jpeg gif png))
   #     errors.add(:avatar, 'Foto invalido')
   #   end
   # end

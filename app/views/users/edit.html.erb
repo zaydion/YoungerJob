@@ -25,22 +25,22 @@
             <%= form.file_field :avatar, accept:'image/*' %>
           </div>
           <div class="file-path-wrapper">
-            <input class="file-path validate" type="text" placeholder="Sube una foto">
+            <input class="file-path validate" type="text" placeholder="Inserta una foto">
           </div>
         </div>
       </div>
-        <div class="input-field col s6">
-          <div class="file-field field">
-            <div>
-              <i class="large material-icons blue-text lighten-1">attach_file</i>
-              <%= form.file_field :resume, accept: 'application/pdf, application/zip,application/vnd.openxmlformats-officedocument.wordprocessingml.document' %>
-            </div>
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="Sube currículum">
-            </div>
+      <div class="input-field col s6">
+        <div class="file-field field">
+          <div>
+            <i class="large material-icons blue-text lighten-1">attach_file</i>
+            <%= form.file_field :resume, accept: 'application/pdf, application/zip,application/vnd.openxmlformats-officedocument.wordprocessingml.document' %>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Inserta tu currículum">
           </div>
         </div>
       </div>
+    </div>
     <div class="field left-align">
       <%= form.label :nombre %>
       <%= form.text_field :first_name, placeholder: :jean %>
@@ -54,7 +54,7 @@
       <%= form.email_field :email, placeholder: "ejemplo@email.com" %>
     </div>
     <div class="field left-align">
-      <%= form.label :numero_telefonico %>
+      <%= form.label :número_telefonicó %>
       <%= form.telephone_field :phone_number, placeholder: "8095557733" %>
     </div>
     <div class="field left-align">
@@ -62,18 +62,20 @@
       <%= form.date_field :dob %>
     </div>
     <div class="field left-align">
-      <%= form.label :escribi_un_poco_sobre_ti %>
-      <i class="material-icons tooltipped" data-position="top" data-tooltip="<h6>Sugerencias:</h6><ul class='left-align browser-default'><li>Habilidades</li><li>Areas ocupacionales</li></ul><br/><ol class='left-align'><li>Puedo trabajar bajo presión</li><li>Se me da bien resolver problemas de una manera rápida y eficaz</li><li>Me considero una persona creativa e innovadora</li><li>Soy una persona bastante despistada</li><li>Me exijo constantemente efectividad y buenos resultados en mis estudios</li><li>Puedo trabajar en equipo</li><li>Me gusta escuchar a los demás y comprender sus sentimientos</li><li>Tengo facilidad para pensar y razonar de forma lógica</li></ol>">help_outline</i> <%= form.text_area :description, size: '100x500', class: "materialize-textarea", placeholder: "Las fortalezas centrales y los conjuntos de habilidades más relevantes para el rol
-      Experiencia relevante pasada con funciones clave.
-      Logros notables que pretende repetir en el próximo rol" %>
+      <%= form.label :escribe_un_poco_sobre_ti %>
+      <i class="tiny material-icons tooltipped" data-position="top" data-tooltip="<h6>Sugerencias:</h6><ul class='left-align browser-default'><li>Habilidades</li><li>Areas ocupacionales</li></ul><br/><ol class='left-align'><li>Puedo trabajar bajo presión</li><li>Se me da bien resolver problemas de una manera rápida y eficaz</li><li>Me considero una persona creativa e innovadora</li><li>Soy una persona bastante despistada</li><li>Me exijo constantemente efectividad y buenos resultados en mis estudios</li><li>Puedo trabajar en equipo</li><li>Me gusta escuchar a los demás y comprender sus sentimientos</li><li>Tengo facilidad para pensar y razonar de forma lógica</li></ol>">help_outline</i> 
+      <%= form.text_area :description, 
+        class: "materialize-textarea", 
+        placeholder: "Las fortalezas centrales y los conjuntos de habilidades más relevantes para el rol. Experiencia relevante pasada con funciones clave. Logros notables que pretende repetir en el próximo rol." 
+      %>
     </div>
     <div class="field left-align">
       <%= form.label :contraseña %>
-      <%= form.password_field :password, placeholder: :password %>
+      <%= form.password_field :password, placeholder: :contraseña %>
     </div>
     <div class="field left-align">
       <%= form.label :confirmar_contraseña %>
-      <%= form.password_field :password_confirmation, placeholder: :password %>
+      <%= form.password_field :password_confirmation, placeholder: :contraseña %>
     </div>
     <div class=" left-align">
       <div class="field left-align">
@@ -92,7 +94,7 @@
     </div>
     <%= form.submit "Actualizar usuario", class: "waves-effect waves-light btn green white-text" %>
   <% end %>
-  <%= link_to t('Atras'), :back, class: "waves-effect waves-light btn orange white-text" %>
+  <%= link_to t('Atrás'), :back, class: "waves-effect waves-light btn orange white-text" %>
   <p>
     <%= link_to 'Borrar', @user, method: :delete, 
         data: { confirm: 'Confirma que quiere borrar su cuenta?' }, 

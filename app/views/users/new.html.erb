@@ -18,19 +18,20 @@
           </ul>
         </div>
       <% end %>
-      <div class="row">
-        <div class="input-field">
-          <%= form.email_field :email, placeholder: :email %>
+      <div class="row section">
+        <div class="field left-align">
+          <%= form.label :email %>
+          <%= form.email_field :email %>
         </div>
-        <div class="field">
+        <div class="field left-align">
           <%= form.label :fecha_de_nacimiento %>
           <%= form.date_field :dob %>
         </div>
-        <div class="field">
+        <div class="field left-align">
           <%= form.label :contraseña %>
           <%= form.password_field :password %>
         </div>
-        <div class="field">
+        <div class="field left-align">
           <%= form.label :confirmar_contraseña %>
           <%= form.password_field :password_confirmation %>
         </div>
