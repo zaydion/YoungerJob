@@ -36,11 +36,11 @@
       <div class="input-field col s6">
         <div class="file-field field">
           <div>
-            <% if @user.resume.attached? %>            
-              <i class="large material-icons darken-2 green-text">insert_drive_file</i>
+            <% if @user.resume.attached? %>
+              <i class="large material-icons darken-2 blue-text">insert_drive_file</i>
               <span class="truncate"><%= @user.resume.filename %></span>
             <% else %>
-              <i class="large material-icons grey-text lighten-1">attach_file</i>
+              <i class="large material-icons grey-text">attach_file</i>
             <% end %>
             <%= form.file_field :resume, accept: 'application/pdf, application/zip,application/vnd.openxmlformats-officedocument.wordprocessingml.document' %>
           </div>

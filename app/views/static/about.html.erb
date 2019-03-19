@@ -1,17 +1,40 @@
 <% content_for :body_class, "users-background" %>
-<div class="grid login">
+<div class="grid login about-us">
   <div class="profile-content white">
     <div>
       <%= image_tag('yg_logo.jpg', size: "200x200") %>
     </div>
-    <div class="light-padding section">
-      <h1 class="grey-text left-align">Sobre Nosotros</h1>
-    </div> 
+    <div class="section light-padding left-align">
+      <h3 class="grey-text left-align">¿Quiénes somos?</h3>
+      <p>
+        Younger Job es una aplicación, para ayudar a los jóvenes dominicanos entre el rango de edades de 16-25 años a adquirir experiencia de trabajo. También ofrecemos un trabajo que sea lo más parecido posible a los gustos y objetivos del usuario, los cuales se conocen mediante una especie de test vocacional. Proponemos que los jóvenes aprendan a desarrollar la habilidad de resolver desafíos, conocer el valor del trabajo y conseguir independencia. De esta manera habrá más flujo de dinero en el país y oportunidades de emprendimiento y superación de los mismos usuarios.
+        El objetivo es que la población activa dominicana que no trabaja, también contribuyan a la economía sin tener el compromiso de entrar al mercado laboral, dándoles la oportunidad de obtener experiencia laboral y formando la población desde temprana edad.
+        Younger Job ofrece servicios de facilitación en búsqueda de empleo para jóvenes con dos versiones variadas, una es la aplicación sin costo que ofrece el cómo un test vocacional que te arroja a las diversas empresas posibles de trabajo,  mientras la aplicación Premium o de paga dará el test con diferentes fines con respecto a que la búsqueda se más precisa, también se publicaran estadísticas, informaciones, sugerencias, etc. Para que el joven se empape de información que se le será útil a su vida laboral.
+      </p>
+    </div>
     <div class="divider"></div>
     <div class="section light-padding left-align">
+      <h3 class="grey-text left-align">Misión</h3>
       <p>
-        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+        Somos una empresa mediadora entre los jóvenes interesados en la búsqueda de empleo y las empresas que quieran darles la oportunidad a futuros profesionales de tener algún tipo de experiencia laboral. Brindamos soporte, seguimiento y acompañamiento en cada paso de este proceso.  
       </p>
+    </div>
+    <div class="divider"></div>
+    <div class="section light-padding left-align">
+      <h3 class="grey-text left-align">Visión</h3>
+      <p>
+        Ser una empresa reconocida por la confianza depositada de parte de las empresas afiliadas a la calidad de los jóvenes reclutados para sus equipos.
+      </p>
+    </div>
+    <div class="divider"></div>
+    <div class="section light-padding left-align">
+      <h3 class="grey-text left-align">Servicios</h3>
+      <ul class="browser-default">
+        <li>Servicios de test vocacional</li>
+        <li>Ofertas de trabajo según tu perfil</li>
+        <li>Estadísticas o estudio de mercado</li>
+        <li>Seguimiento a cada usuario</li>
+      </ul>
     </div>
     <%= link_to t('Atrás'), :root, class: "waves-effect waves-light btn lighten-2 orange white-text" %>
   </div>
