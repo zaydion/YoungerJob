@@ -2,7 +2,7 @@
   <% if post.errors.any? %>
     <div id="error_explanation">
       <b>
-        <%= pluralize(@post.errors.count, "error", "errores") %> <%= (@post.errors.count && @post.errors.count > 1 ? "prohibieron" : "prohibio") %> crear el usuario:
+        <%= pluralize(@post.errors.count, "error", "errores") %> <%= (@post.errors.count && @post.errors.count > 1 ? "prohibieron" : "prohibio") %> crear la posición:
       </b>
       <ul class="browser-default left-align">
         <% @post.errors.messages.each do |key, messages| %>
