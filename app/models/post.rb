@@ -3,7 +3,7 @@ class Post < ApplicationRecord
 
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
-  validates :title, :description, presence: true
+  validates :title, :description, presence: { message: "Título y descripción son requeridos" }
   validates :tag_ids, presence: { message: "Debe elegir al menos un interés" }
 
   def self.younger_job_types

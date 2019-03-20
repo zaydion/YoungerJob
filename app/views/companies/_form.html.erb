@@ -1,12 +1,15 @@
 <%= form_with(model: company, local: true, class: "left-align company form") do |form| %>
   <% if company.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
-
-      <ul>
-      <% company.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+    <div>
+      <b>
+        <%= pluralize(@company.errors.count, "error", "errores") %> <%= (@company.errors.count && @company.errors.count > 1 ? "prohibieron" : "prohibio") %> crear la compañía:
+      </b>
+      <ul class="browser-default left-align">
+        <% @company.errors.messages.each do |key, messages| %>
+          <% messages.each do |message| %>
+            <li class="red-text"><%= message %></li>
+          <% end %>
+        <% end %>
       </ul>
     </div>
   <% end %>
