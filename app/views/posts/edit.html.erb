@@ -5,7 +5,7 @@
     <%= render 'form', post: @post %>
     <%= link_to 'Cancelar', company_post_path(@post.company, @post), class: "btn-flat lighten-1 grey white-text" %>
     <p>
-      <%= link_to 'Borrar posición', @company, method: :delete, 
+      <%= link_to 'Borrar posición', [@post.company, @post], method: :delete, 
                                                data: { confirm: 'Confirma que quiere borrar esta posición?' }, 
                                                class: "btn-flat lighten-2 red white-text" %>
     </p>
