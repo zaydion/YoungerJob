@@ -32,7 +32,7 @@
     <div class="section left-align white black-text light-padding">
       <div>
         <label>Un poco sobre mi:</label>
-        <% if current_user == @user && @user.description.nil? %>
+        <% if current_user == @user && @user.description.empty? %>
           <blockquote class="lighten-3 grey-text user-description">
             <b>Esta parte sera visible por compañías que visiten tu perfil. Aqui tienes algunas sugerencias de que escribir:</b>
             <ul class="left-align browser-default">

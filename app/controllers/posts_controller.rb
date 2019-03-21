@@ -15,7 +15,11 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @company = Company.includes(:posts).find(params[:company_id])
-    @posts = @company.posts
+    if logged_in_as_user?
+      @posts = @company.posts.where(id: current_user.allowed_posts_by_job_type)
+    else
+      @posts = @company.posts
+    end
   end
 
   # GET /posts/1
